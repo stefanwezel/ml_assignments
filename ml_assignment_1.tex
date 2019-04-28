@@ -114,12 +114,28 @@ Beim Unsupervised Learning haben die Daten keine Labels und man versucht stattde
 \subsubsection*{(i)}
 Eine Zufallsvariable ist eine Funktion die aus einer Menge von moeglichen Ergebnissen eines Zufallsexperiment auf eine Wahrscheinlichkeit (Maß) abbildet. Hat man eine endliche Augangsmenge von moeglichen Ergebnissen (zb. bei einem Wuefel) hat man eine diskrete Zufallsvariable. Ist die Grundmenge nicht abzaehlbar (zb. Koerpergroesse) dann ist die Zufallsvariable ein Intervall aus einer kontinuirlichen Menge.
 
-\subsubsection*{(ii)} 
+\subsubsection*{(ii)}
+Eine Wahrscheinlichkeitsfunktion nimmt als Parameter eine diskrete Zufallsvariable an und gibt einen Wert zwischen 0 und 1 aus.\\
+Bei der Wahrscheinlickeitsdichtefunktion hingengen ist die Wahrscheinlichkeit für einen bestimmten Wert immer 0 und es lässt sich lediglich die Wahrscheinlichkeit für Intervalle bestimmen. Diese sind dann das Integral der Dichtefunktion welches als Grenzen die obere und untere Schranke des Intervalls hat.
+
 \subsubsection*{(iii)} 
 Der Erwartungswert ist der Wert den eine Zufallsvariable nach unendlich vielen Durchführungen eines Zufallsexperiments im Mittel annimmt.
+
 \subsubsection*{(iv)} 
 Die Varianz einer Verteilung beschreibt die mittlere quadratische Abweichung zum Erwartungswert. Die Standardabweichung ist die positive Wurzel aus der Varianz. Beide beschreiben also die "Streuung" der Daten um einen durchschnittlichen Wert.
-\subsubsection*{(v)} 
+
+\subsubsection*{(v)} %TODO Formulierung ueberarbeiten.
+Die Kovarianz zweier Zufallsvariablen beschreibt wie stark diese linear zusammenhängen. Wird beispielsweise Variable $X$ größer und $Y$ ebenfalls, so spricht man von positiver Kovarianz. (Fall $COV(X,Y)> 0$). Ist das Gegenteil der Fall, also wenn $X$ größer wird und $Y$ kleiner, so spricht man von negativer Kovarianz(Fall $COV(X,Y) < 0$). Wenn $COV(X,Y)=0$, dann sind die Variablen unanbhängig.
+
+
+
+\subsection*{(f)}
+Die Multiplikation zweier Wahrscheinlichkeitsdichten liefert wieder eine Wahrscheinlichkeitsdichte. Wahrscheinlichkeitsdichten lassen sich als Funktion beschreiben, die:
+\begin{itemize}
+	\item niemals kleiner 0 wird.
+	\item unter deren Kurve die Fläche 1 ist (und damit kontinuierlich ist.)
+\end{itemize}
+Multipliziert man nun zwei Wahrscheinlichkeitsdichten ist das Produkt wieder eine Funktion, deren Werte niemals kleiner 0 werden.
 
 
 \section*{Aufgabe 2}
