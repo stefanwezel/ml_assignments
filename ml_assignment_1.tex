@@ -168,7 +168,7 @@ Durch das Aendern von $\sigma$ zu 2 wird die Kurve um Faktor 2 nach aussen gedeh
 Die linke Graphik zeigt den Plot mit $\mu$ = [0 0], die rechte den Plot mit $\mu$ = [-2 2].\\
 $\mu$ verschiebt den Graph. Dabei verschiebt der erste Wert den Graph um die x-Achse und der zweite um die y-Achse. Somit ist das Maximum bei (-2,2) und nicht mehr bei (0,0) wie bei der linken Graphik.
 
-\subsection*{(b)}
+\subsection*{(b)} %TODO Formulierung ueberarbeiten?
 
 covarianceX1X2 = 0.7:
 \begin{center}
@@ -186,14 +186,25 @@ covarianceX1X2 = -0.99:
 \begin{center}
 	\includegraphics*[scale = 0.5]{question3b4.png}
 \end{center}
+Indem man covarianceX1X2 auf eine Zahl im Intervall (0,1) erhoeht, gibt es eine Streckung des Graphen anhand einer Ebene senkrecht zur XY-Ebene, im 45$^\{\circ\}$ Winkel zur x - Achse durch den Ursprung. Desweiteren wird der Graph gestaucht anhand einer Ebene, die senkrecht zu der vorher genannten, durch den Ursprung verlaeuft.\\
+Fuer Zahlen im Intervall (-1,0) ist es analog, nur dass Streckung und Stauchung miteinander vertauscht ist.\\
 
 \subsection*{(c)}
+<<<<<<< HEAD
 
 
 
 
 
 
+=======
+\begin{itemize}
+	\item Kovarianz gibt den absoluten Wert an, wie stark  zwei Zufallszahlen zusammenhaengen
+	\item Korrelation gibt den relativen Wert an
+	\item Korrelation ist Standarditiert in einem Intervall [-1,1], waehrend Kovarianz Werte im Intervall ($+\inf, -\inf$) annehmen kann. 
+	\item Korrelation ist dimensionslos, waehrend Kovarianz die Einheit der beiden Variablen annimmt.
+\end{itemize}
+>>>>>>> 94bc918656d098e0cacfe5f66d8bc04296606b09
 \section*{Aufgabe 4}
 
 \subsection*{(b)}
@@ -213,4 +224,9 @@ covarianceX1X2 = -0.99:
 \begin{center}
 	\includegraphics*[scale = 0.5]{question4d.png}
 \end{center}
+\subsection*{(e)}
+siehe code.
+\subsection*{(f)} %TODO vermutlich falsch?
+Fuer genauere Zufallszahlen waere es sinnvoll, wenn man diejenige Zahl aussucht, welche naeher an der generierten uniformierten Zufallszahl liegt. \\
+Wenn man zum Beispiel die Zufallszahl 0.61 generiert, wuerde der Algorithmus aus (e) 7 auswaehlen, obwohl 6 mit 0.6 naeher liegen wuerde. 
 \end{document}
