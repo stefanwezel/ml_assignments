@@ -225,7 +225,8 @@ Für Zahlen im Intervall (-1,0) ist es analog, nur dass Streckung und Stauchung 
 \end{center}
 \subsection*{(e)}
 siehe code.
-\subsection*{(f)} TODO vermutlich falsch?
-Fuer genauere Zufallszahlen waere es sinnvoll, wenn man diejenige Zahl aussucht, welche naeher an der generierten uniformierten Zufallszahl liegt. \\
-Wenn man zum Beispiel die Zufallszahl 0.61 generiert, wuerde der Algorithmus aus (e) 7 auswaehlen, obwohl 6 mit 0.6 naeher liegen wuerde. 
+\subsection*{(f)} %TODO vermutlich falsch?
+%Fuer genauere Zufallszahlen waere es sinnvoll, wenn man diejenige Zahl aussucht, welche naeher an der generierten uniformierten Zufallszahl liegt. \\
+%Wenn man zum Beispiel die Zufallszahl 0.61 generiert, wuerde der Algorithmus aus (e) 7 auswaehlen, obwohl 6 mit 0.6 naeher liegen wuerde. 
+Die Funktion wird unpräzise, weil immer das untere Ende der Wahrscheinlichkeit für einen Wert nicht stimmt. Liegt beispielsweise die Wk für $\leq 9$ bei 0.9, so wird beim Wert 0.9 schon eine 10 generiert, keine 9. Das ist für die meisten Zahlen unproblematisch, weil für jede Zahl der Effekt am unteren Ende der Wahrscheinlichkeit eintritt. Also z.B. wird die Wahrscheinlichkeit für 9 wieder richtig, weil wiederum der oberste Wert für 8 noch zur Wahrscheinlichkeit von 9 gezählt wird. Bei der kleinsten Zahl geschieht dies allerdings nicht. 1 erhält keine ``zusätzliche Wahrscheinlichkeit''. Man kann diesen Fehler beheben, indem man einen zustätzlichen if-Fall einfügt, der abfängt, wenn die zufällig generierte Zahl \textbf{genau} einem F-Wert entspricht und dann direkt den zugehörigen Index als Ergebnis ausgeben.
 \end{document}
