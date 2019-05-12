@@ -20,16 +20,22 @@ virginica_pb = virginica_data(1:40,4);
 
 % histogram(virginica_pb, 10)
 
-setosa = [0,0,0,0];
+setosa = [];
 versicolor = [];
 virginica = [];
 
 for i = 1:4
-    setosa(i) = setosa_data(1:40,i);
+    setosa(1,i) = mean(setosa_data(1:40,i));
+    setosa(2,i) = var(setosa_data(1:40,i));
+    versicolor(1,i) = mean(versicolor_data(1:40,i));
+    versicolor(2,i) = var(versicolor_data(1:40,i));
+    virginica(1,i) = mean(virginica_data(1:40,i));
+    virginica(2,i) = var(virginica_data(1:40,i));
+    
 end
 setosa
+versicolor
+virginica
 
 
-var(setosa_sl)
-mean(setosa_sl)
 end
