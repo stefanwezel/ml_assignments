@@ -24,18 +24,12 @@ setosa = [];
 versicolor = [];
 virginica = [];
 
-for i = 1:4
-    setosa(1,i) = mean(setosa_data(1:40,i));
-    setosa(2,i) = var(setosa_data(1:40,i));
-    versicolor(1,i) = mean(versicolor_data(1:40,i));
-    versicolor(2,i) = var(versicolor_data(1:40,i));
-    virginica(1,i) = mean(virginica_data(1:40,i));
-    virginica(2,i) = var(virginica_data(1:40,i));
+setosa = [mean(setosa_data); var(setosa_data)];
+versicolor = [mean(versicolor_data); var(versicolor_data)];
+virginica = [mean(virginica_data); var(virginica_data)];
     
-end
 setosa
 versicolor
 virginica
-
 
 end
