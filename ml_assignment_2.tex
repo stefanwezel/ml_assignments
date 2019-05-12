@@ -1,0 +1,138 @@
+%Template
+% !TeX spellcheck = de 
+\documentclass[a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+%\usepackage[ngerman]{babel}
+\usepackage{geometry,forloop,fancyhdr,fancybox,lastpage}
+\usepackage{listings}
+\lstset{frame=tb,
+	language=Java,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3
+}
+\geometry{a4paper,left=3cm, right=3cm, top=3cm, bottom=3cm}
+% Diese Daten müssen pro Blatt angepasst werden:
+\newcommand{\NUMBER}{2}
+\newcommand{\EXERCISES}{4}
+% Diese Daten müssen einmalig pro Vorlesung angepasst werden:
+\newcommand{\COURSE}{Einführung in Maschinelles Lernen}
+\newcommand{\TUTOR}{TBD}
+\newcommand{\STUDENTA}{Maria Heitmeier}
+\newcommand{\STUDENTB}{Gwent Krause}
+\newcommand{\STUDENTC}{Stefan Wezel}
+\newcommand{\DEADLINE}{23.05.2018}
+
+
+
+
+%Math
+\usepackage{amsmath,amssymb,tabularx}
+
+%Figures
+\usepackage{graphicx,tikz,color,float}
+\graphicspath{ {home/stefan/picures/} }
+\usetikzlibrary{shapes,trees}
+
+%Algorithms
+\usepackage[ruled,linesnumbered]{algorithm2e}
+
+%Kopf- und Fußzeile
+\pagestyle {fancy}
+\fancyhead[L]{\COURSE}
+\fancyhead[C]{\STUDENTA, \STUDENTB, \STUDENTC\\}
+\fancyhead[R]{\today}
+
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{Seite \thepage}
+
+%Formatierung der Überschrift, hier nichts ändern
+\def\header#1#2{
+	\begin{center}
+		{\Large\bf Übungsblatt #1}\\
+		{(Abgabetermin #2)}
+	\end{center}
+}
+
+%Definition der Punktetabelle, hier nichts ändern
+\newcounter{punktelistectr}
+\newcounter{punkte}
+\newcommand{\punkteliste}[2]{%
+	\setcounter{punkte}{#2}%
+	\addtocounter{punkte}{-#1}%
+	\stepcounter{punkte}%<-- also punkte = m-n+1 = Anzahl Spalten[1]
+	\begin{center}%
+		\begin{tabularx}{\linewidth}[]{@{}*{\thepunkte}{>{\centering\arraybackslash} X|}@{}>{\centering\arraybackslash}X}
+			\forloop{punktelistectr}{#1}{\value{punktelistectr} < #2 } %
+			{%
+				\thepunktelistectr &
+			}
+			#2 &  $\Sigma$ \\
+			\hline
+			\forloop{punktelistectr}{#1}{\value{punktelistectr} < #2 } %
+			{%
+				&	
+			} &\\
+			\forloop{punktelistectr}{#1}{\value{punktelistectr} < #2 } %
+			{%
+				&
+			} &\\
+		\end{tabularx}
+	\end{center}
+}
+
+\begin{document}
+	
+\section*{Aufgabe 1}
+
+\section*{Aufgabe 2}
+
+\section*{Aufgabe 3}
+
+\section*{Aufgabe 4}
+\begin{itemize}
+	\item[b)]
+	\item[c)] Setosa:\\
+	\begin{tabular}{c|c|c|c|c}
+		&sepale Länge & sepale Breite & petale Länge & petale Breite\\
+		\hline
+		Mittelwert & 5.0425 &   3.4575 &   1.4650  &  0.2525 \\
+		Varianz & 0.3601 &   0.3928  &  0.1875  &  0.1109\\
+	\end{tabular}\\ \\
+Versicolor:\\
+\begin{tabular}{c|c|c|c|c}
+	&sepale Länge & sepale Breite & petale Länge & petale Breite\\
+	\hline
+	Mittelwert & 5.8950 &   2.7450  &  4.2325  &  1.3125 \\
+	Varianz & 0.4517  &  0.3063  &  0.4676  &  0.2040\\
+\end{tabular}\\ \\
+Virginica:\\
+\begin{tabular}{c|c|c|c|c}
+	&sepale Länge & sepale Breite & petale Länge & petale Breite\\
+	\hline
+	Mittelwert & 6.5925  &  2.9825  &  5.4975  &  2.0225\\
+	Varianz & 0.5989 &   0.3226  &  0.5332  &  0.2741\\
+\end{tabular}
+	\item[d)] Siehe code
+	\item[e)] Die Ergebnisse sind in folgender Tabelle zusammengefasst:\\ \\ \begin{tabular}{c|c|c|c|c}
+		Art & true-positives & true-negatives & false-positives & false-negatives\\
+		\hline
+		Setosa & 10 & 20 & 0 & 0\\
+		Versicolor & 10 & 19 & 1 & 0\\
+		Virginica & 9 & 20 & 0& 1\\
+	\end{tabular}
+\end{itemize}
+
+
+\end{document}

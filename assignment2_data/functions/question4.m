@@ -1,25 +1,14 @@
 function question4()
+
+% a)
 setosa_data = csvread('trainingSetosa.csv');
 versicolor_data = csvread('trainingVersicolor.csv');
 virginica_data = csvread('trainingVirginica.csv');
 
-setosa_sl = setosa_data(1:40,1);
-setosa_sb = setosa_data(1:40,2);
-setosa_pl = setosa_data(1:40,3);
-setosa_pb = setosa_data(1:40,4);
-
-versicolor_sl = versicolor_data(1:40,1);
-versicolor_sb = versicolor_data(1:40,2);
-versicolor_pl = versicolor_data(1:40,3);
-versicolor_pb = versicolor_data(1:40,4);
-
-virginica_sl = virginica_data(1:40,1);
-virginica_sb = virginica_data(1:40,2);
-virginica_pl = virginica_data(1:40,3);
-virginica_pb = virginica_data(1:40,4);
-
+% b)
 % histogram(virginica_pb, 10)
 
+% c)
 setosa = [];
 versicolor = [];
 virginica = [];
@@ -32,6 +21,7 @@ setosa
 versicolor
 virginica
 
+%d) 
 setosa_test = csvread('testSetosa.csv');
 versicolor_test = csvread('testVersicolor.csv');
 virginica_test = csvread('testVirginica.csv');
@@ -48,6 +38,7 @@ prob_s_vi = normpdf(setosa_test, virginica(1,1:4), virginica(2,1:4));
 prob_ve_vi = normpdf(versicolor_test, virginica(1,1:4), virginica(2,1:4));
 prob_vi_vi = normpdf(virginica_test, virginica(1,1:4), virginica(2,1:4));
 
+%e)
     function [result] = row_mult(x) 
         result = x(1:size(x,1),1);
         for j = 2:size(x,2)
@@ -131,11 +122,19 @@ virginica_results
 
 
 % Petrale Breite gegen sepale Breite
-scatter(setosa_data(1:40,4), setosa_data(1:40, 2))
+scatter(setosa_data(1:40,4), setosa_data(1:40, 2));
+xlabel('Petale Breite')
+ylabel('Sepale Breite')
 % petale Länge gegen sepale Länge
-scatter(setosa_data(1:40,3), setosa_data(1:40, 1))
+%scatter(setosa_data(1:40,3), setosa_data(1:40, 1))
+%xlabel('Petale Länge')
+%ylabel('Sepale Länge')
 % petale Länge gegen petale Breite
-scatter(setosa_data(1:40,3), setosa_data(1:40, 4))
+%scatter(setosa_data(1:40,3), setosa_data(1:40, 4))
+%xlabel('Petale Länge')
+%ylabel('Petale Breite')
 % sepale Länge gegen sepale Breite
-scatter(setosa_data(1:40,1), setosa_data(1:40, 2))
+%scatter(setosa_data(1:40,1), setosa_data(1:40, 2))
+%xlabel('Sepale Länge')
+%ylabel('Sepale Breite')
 end
