@@ -5,9 +5,28 @@ setosa_data = csvread('trainingSetosa.csv');
 versicolor_data = csvread('trainingVersicolor.csv');
 virginica_data = csvread('trainingVirginica.csv');
 
-% b)
-% histogram(virginica_pb, 10)
+% b),
+% the following code automaticly creates the histograms and saves them
+% because we don't want to create them over again it's commented out.
 
+% for i = 1:4
+%     ending = '';
+%     if i == 1
+%         ending = '_sl';
+%     elseif i == 2
+%         ending = '_sb';
+%     elseif i == 3
+%         ending = '_pl';
+%     else
+%         ending = '_pb';
+%     end
+%     setosa_hist = histogram(setosa_data(1:40,i), 10);
+%     saveas(setosa_hist, strcat('setosa',ending),'png');
+%     versicolor_hist = histogram(versicolor_data(1:40,i), 10);
+%     saveas(versicolor_hist, strcat('versicolor', ending),'png');
+%     virginica_hist = histogram(virginica_data(1:40,i), 10);
+%     saveas(virginica_hist, strcat('virginica', ending),'png');
+% end
 % c)
 setosa = [];
 versicolor = [];
@@ -126,17 +145,17 @@ virginica_results
 scatter(setosa_data(1:40,4), setosa_data(1:40, 2));
 xlabel('Petale Breite')
 ylabel('Sepale Breite')
-% petale Länge gegen sepale Länge
+% petale Lï¿½nge gegen sepale Lï¿½nge
 %scatter(setosa_data(1:40,3), setosa_data(1:40, 1))
-%xlabel('Petale Länge')
-%ylabel('Sepale Länge')
-% petale Länge gegen petale Breite
+%xlabel('Petale Lï¿½nge')
+%ylabel('Sepale Lï¿½nge')
+% petale Lï¿½nge gegen petale Breite
 %scatter(setosa_data(1:40,3), setosa_data(1:40, 4))
-%xlabel('Petale Länge')
+%xlabel('Petale Lï¿½nge')
 %ylabel('Petale Breite')
-% sepale Länge gegen sepale Breite
+% sepale Lï¿½nge gegen sepale Breite
 %scatter(setosa_data(1:40,1), setosa_data(1:40, 2))
-%xlabel('Sepale Länge')
+%xlabel('Sepale Lï¿½nge')
 %ylabel('Sepale Breite')
 
 %g)
