@@ -13,9 +13,9 @@ setosa = [];
 versicolor = [];
 virginica = [];
 
-setosa = [mean(setosa_data); sqrt(var(setosa_data))];
-versicolor = [mean(versicolor_data); sqrt(var(versicolor_data))];
-virginica = [mean(virginica_data); sqrt(var(virginica_data))];
+setosa = [mean(setosa_data); sqrt(var(setosa_data)); var(setosa_data)];
+versicolor = [mean(versicolor_data); sqrt(var(versicolor_data)); var(versicolor_data)];
+virginica = [mean(virginica_data); sqrt(var(virginica_data)); var(virginica_data)];
     
 setosa
 versicolor
@@ -116,11 +116,12 @@ for i = 1:size(virginica_test, 1)
     end
 end
 
+% e)
 setosa_results
 versicolor_results
 virginica_results
 
-
+%f)
 % Petrale Breite gegen sepale Breite
 scatter(setosa_data(1:40,4), setosa_data(1:40, 2));
 xlabel('Petale Breite')
@@ -137,4 +138,89 @@ ylabel('Sepale Breite')
 %scatter(setosa_data(1:40,1), setosa_data(1:40, 2))
 %xlabel('Sepale Länge')
 %ylabel('Sepale Breite')
+
+%g)
+prob_s_s_mvn = mvnpdf(setosa_test, setosa(1,1:4), cov(setosa_data));
+prob_ve_s_mvn = mvnpdf(versicolor_test, setosa(1,1:4), cov(setosa_data));
+prob_vi_s_mvn = mvnpdf(virginica_test, setosa(1,1:4), cov(setosa_data));
+
+prob_s_ve_mvn = mvnpdf(setosa_test, versicolor(1,1:4), cov(versicolor_data));
+prob_ve_ve_mvn = mvnpdf(versicolor_test, versicolor(1,1:4), cov(versicolor_data));
+prob_vi_ve_mvn = mvnpdf(virginica_test, versicolor(1,1:4), cov(versicolor_data));
+
+prob_s_vi_mvn = mvnpdf(setosa_test, virginica(1,1:4), cov(versicolor_data));
+prob_ve_vi_mvn = mvnpdf(versicolor_test, virginica(1,1:4), cov(versicolor_data));
+prob_vi_vi_mvn = mvnpdf(virginica_test, virginica(1,1:4), cov(versicolor_data));
+
+
+setosa_results_mvn = [];
+for i = 1:size(setosa_test, 1)
+    max = 0;
+    setosa_results_mvn(i, 1) = false;
+    p_S_i = prob_s_s_mvn(i) * 1/3;
+    setosa_results_mvn(i, 2) = p_S_i;
+    if p_S_i > max
+        setosa_results_mvn(i, 1) = true;
+        max = p_S_i;
+    end
+     p_Ve_i = prob_s_ve_mvn(i) * 1/3;
+     setosa_results_mvn(i, 3) = p_Ve_i;
+    if p_Ve_i > max
+        max = p_Ve_i;
+    end
+    p_Vi_i = prob_s_vi_mvn(i) * 1/3;
+    setosa_results_mvn(i, 4) = p_Vi_i;
+    if p_Vi_i > max
+        max = p_Vi_i;
+    end
+end
+
+versicolor_results_mvn = [];
+for i = 1:size(versicolor_test, 1)
+    max = 0;
+    versicolor_results_mvn(i, 1) = false;
+    p_S_i = prob_ve_s_mvn(i) * 1/3;
+    versicolor_results_mvn(i, 2) = p_S_i;
+    if p_S_i > max
+        max = p_S_i;
+    end
+     p_Ve_i = prob_ve_ve_mvn(i) * 1/3;
+     versicolor_results_mvn(i, 3) = p_Ve_i;
+    if p_Ve_i > max
+         versicolor_results_mvn(i, 1) = true;
+        max = p_Ve_i;
+    end
+    p_Vi_i = prob_ve_vi_mvn(i) * 1/3;
+    versicolor_results_mvn(i, 4) = p_Vi_i;
+    if p_Vi_i > max
+        max = p_Vi_i;
+    end
+end
+
+virginica_results_mvn = [];
+for i = 1:size(virginica_test, 1)
+    max = 0;
+    virginica_results_mvn(i, 1) = false;
+    p_S_i = prob_vi_s_mvn(i) * 1/3;
+    virginica_results_mvn(i, 2) = p_S_i;
+    if p_S_i > max
+        max = p_S_i;
+    end
+     p_Ve_i = prob_vi_ve_mvn(i) * 1/3;
+     virginica_results_mvn(i, 3) = p_Ve_i;
+    if p_Ve_i > max
+        max = p_Ve_i;
+    end
+    p_Vi_i = prob_vi_vi_mvn(i) * 1/3;
+    virginica_results_mvn(i, 4) = p_Vi_i;
+    if p_Vi_i > max
+        virginica_results_mvn(i, 1) = true;
+        max = p_Vi_i;
+    end
+end
+
+setosa_results_mvn
+versicolor_results_mvn
+virginica_results_mvn
+
 end

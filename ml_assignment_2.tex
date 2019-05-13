@@ -102,27 +102,30 @@
 
 \section*{Aufgabe 4}
 \begin{itemize}
-	\item[b)]
+	\item[b)] %TODO aus Matlab einfügen
 	\item[c)] Setosa:\\
 	\begin{tabular}{c|c|c|c|c}
 		&sepale Länge & sepale Breite & petale Länge & petale Breite\\
 		\hline
 		Mittelwert & 5.0425 &   3.4575 &   1.4650  &  0.2525 \\
-		Varianz & 0.3601 &   0.3928  &  0.1875  &  0.1109\\
+		SD & 0.3601 &   0.3928  &  0.1875  &  0.1109\\
+		Varianz & 0.1297  &  0.1543  &  0.0352  &  0.0123\\
 	\end{tabular}\\ \\
 Versicolor:\\
 \begin{tabular}{c|c|c|c|c}
 	&sepale Länge & sepale Breite & petale Länge & petale Breite\\
 	\hline
 	Mittelwert & 5.8950 &   2.7450  &  4.2325  &  1.3125 \\
-	Varianz & 0.4517  &  0.3063  &  0.4676  &  0.2040\\
+	SD & 0.4517  &  0.3063  &  0.4676  &  0.2040\\
+	Varianz & 0.2041  &  0.0938  &  0.2187  &  0.0416\\
 \end{tabular}\\ \\
 Virginica:\\
 \begin{tabular}{c|c|c|c|c}
 	&sepale Länge & sepale Breite & petale Länge & petale Breite\\
 	\hline
 	Mittelwert & 6.5925  &  2.9825  &  5.4975  &  2.0225\\
-	Varianz & 0.5989 &   0.3226  &  0.5332  &  0.2741\\
+	SD & 0.5989 &   0.3226  &  0.5332  &  0.2741\\
+	Varianz & 0.3587  &  0.1040  &  0.2844  &  0.0751\\
 \end{tabular}
 	\item[d)] Siehe code
 	\item[e)] Die Ergebnisse sind in folgender Tabelle zusammengefasst:\\ \\ \begin{tabular}{c|c|c|c|c}
@@ -132,6 +135,15 @@ Virginica:\\
 		Versicolor & 10 & 19 & 1 & 0\\
 		Virginica & 9 & 20 & 0& 1\\
 	\end{tabular}
+	\item[f)] \begin{itemize}
+		\item Petale Breite und sepale Breite scheinen relativ unkorreliert zu sein. Das bedeutet, dass Wissen über die petale Breite einer Schwertlilie keine Aussagen über deren sepale Breite zulässt.\\ \includegraphics[width=0.7\linewidth]{assignment2_data/plots/4fi}
+		\item Petale Länge und sepale Länge scheinen ebenfalls unkorreliert zu sein.\\ \includegraphics[width=0.7\linewidth]{assignment2_data/plots/4fii}
+		\item Zwischen Petaler Länge und petaler Breite scheint ein leichter Zusammenhang zu bestehen, d.h. wenn die petale Länge größer ist, ist oft auch die petale Breite größer.\\ \includegraphics[width=0.7\linewidth]{assignment2_data/plots/4fiii}
+		\item Zwischen sepaler Länge und sepaler Breite besteht ein klarer Zusammenhang. Ist die sepale Länge groß, so ist die sepale Breite ebenfalls groß.\\  \includegraphics[width=0.7\linewidth]{assignment2_data/plots/4fiv}
+	\end{itemize}
+	\item[g)] Der einzige Unterschied in der Klassifikation besteht darin, dass diesmal alle Datenpunkte richtig klassifiziert wurden. 
+	%TODO Beispielplot
+
 \end{itemize}
 
 
