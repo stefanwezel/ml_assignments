@@ -11,6 +11,14 @@ n = 1;
 barsche = [];
 lachse = [];
 seabass_counter = 0;
+    function [y] = apost(x, omega)
+        if omega == 1
+            prob = normpdf(x,mu_seabass, sigma_seabass);
+        else
+            prob = normpdf(x,mu_salmon, sigma_salmon);
+        end
+        y = prob;
+    end
 for i = 1:s(1)
     x = fish(i);
     prob_seabass = normpdf(x,mu_seabass, sigma_seabass)/2;
@@ -28,14 +36,44 @@ end
 % xlim([0.4 2]);
 
 % question 3:
-% schnittpunkt = solve(@(x) (normpdf(x,mu_seabass, sigma_seabass) == normpdf(x,mu_salmon, sigma_salmon)));
+schnittpunkt = fzero(@(x) normpdf(x,mu_seabass, sigma_seabass)- normpdf(x,mu_salmon, sigma_salmon), 1);
 
-schnittpunkt = 1.279466;
-normpdf(schnittpunkt,mu_seabass, sigma_seabass)
-normpdf(schnittpunkt,mu_salmon, sigma_salmon)
-seabass_wrong = integral(@(x) normpdf(x,mu_seabass, sigma_seabass), schnittpunkt(1), Inf)
-salmon_wrong = integral(@(x) normpdf(x,mu_salmon, sigma_salmon), -Inf, schnittpunkt(1))
+seabass_wrong = integral(@(x) normpdf(x,mu_seabass, sigma_seabass), schnittpunkt(1), Inf);
+salmon_wrong = integral(@(x) normpdf(x,mu_salmon, sigma_salmon), -Inf, schnittpunkt(1));
 
-risk = seabass_wrong * 0.5 + salmon_wrong * 1.2
+risk_salmon = seabass_wrong * 0.5
+risk_seabass = salmon_wrong * 1.2
+    function[y] = cond_risk_salmon(x)
+        if x < schnittpunkt
+            y = 0;
+        else
+            y = normpdf(x, mu_seabass, sigma_seabass) * 0.5;
+        end
+    end
+    function[y] = cond_risk_seabass(x)
+        if x >= schnittpunkt
+            y = 0;
+        else
+            y = normpdf(x, mu_salmon, sigma_salmon) * 1.2;
+        end
+    end
+% fplot(@(x) cond_risk_salmon(x),[0 2]);
+
+% fplot(@(x) cond_risk_seabass(x), [0 2]);
+    function[y] = decision_function(x)
+        if 0.5*apost(x,1) > 1.2*apost(x,2)
+            y = 1;
+        else
+            y = 2;
+        end
+    end
+
+r = [0 0];
+for i = 1:s(1)
+    x = fish(i);
+    l = decision_function(x);
+    r(l) = r(l) + 1;
+end
+r
 end
 
