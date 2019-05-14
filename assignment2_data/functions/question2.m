@@ -7,8 +7,8 @@ sigma_salmon = 0.3;
 mu_salmon = 1.6;
 s = size(fish);
 % fplot(@(x) normpdf(x,mu_salmon, sigma_salmon),[-8 8])
-barsche = [];
-lachse = [];
+seabass = [];
+salmon = [];
 seabass_counter = 0;
     function [y] = evidence(x)
         y = normpdf(x,mu_seabass, sigma_seabass) + normpdf(x,mu_salmon, sigma_salmon);
@@ -16,9 +16,9 @@ seabass_counter = 0;
 
     function [y] = apost(x, omega)
         if omega == 1
-            prob = normpdf(x,mu_seabass, sigma_seabass)*0.5/evidence(x);
+            prob = normpdf(x,mu_seabass, sigma_seabass)/evidence(x);
         else
-            prob = normpdf(x,mu_salmon, sigma_salmon)*0.5/evidence(x);
+            prob = normpdf(x,mu_salmon, sigma_salmon)/evidence(x);
         end
         y = prob;
     end
@@ -29,8 +29,8 @@ for i = 1:s(1)
     if apostiori_seabass > apostiori_salmon
         seabass_counter = seabass_counter + 1;
     end
-    barsche = [barsche apostiori_seabass];
-    lachse = [lachse apostiori_salmon];
+    seabass = [seabass apostiori_seabass];
+    salmon = [salmon apostiori_salmon];
 end
 % seabass_counter = 622 / 62.2%
 % salmon_counter = 1000-seabass_counter = 378 / 37.8%
@@ -76,6 +76,6 @@ for i = 1:s(1)
     l = decision_function(x);
     r(l) = r(l) + 1;
 end
-r
+% r = [550 450] => 550 seabass | 450 Salmons
 end
 
