@@ -1,6 +1,7 @@
-function question2()
+function fish_classifier()
+% question 2:
 fish = csvread('fische.csv');
-% hist(fish);
+% histogram(fish, 20);
 sigma_seabass = 0.2;
 mu_seabass = 1;
 sigma_salmon = 0.3;
@@ -34,7 +35,7 @@ for i = 1:s(1)
 end
 % seabass_counter = 622 / 62.2%
 % salmon_counter = 1000-seabass_counter = 378 / 37.8%
-% scatter(fish, lachse)
+% scatter(fish, salmon)
 % xlim([0.4 2]);
 
 % question 3:
@@ -59,9 +60,10 @@ risk_seabass = salmon_wrong * 1.2;
             y = normpdf(x, mu_salmon, sigma_salmon) * 1.2;
         end
     end
-% fplot(@(x) cond_risk_salmon(x),[0 2]);
-
-% fplot(@(x) cond_risk_seabass(x), [0 2]);
+% cond_risk = fplot(@(x) cond_risk_salmon(x),[0 2]);
+% saveas(cond_risk, 'cond_risk_salmon.png');
+% cond_risk = fplot(@(x) cond_risk_seabass(x), [0 2]);
+% saveas(cond_risk, 'cond_risk_seabass.png')
     function[y] = decision_function(x)
         if 0.5*apost(x,1) > 1.2*apost(x,2)
             y = 1;
@@ -70,12 +72,12 @@ risk_seabass = salmon_wrong * 1.2;
         end
     end
 
-r = [0 0];
+seabass_salmon = [0 0];
 for i = 1:s(1)
     x = fish(i);
     l = decision_function(x);
-    r(l) = r(l) + 1;
+    seabass_salmon(l) = seabass_salmon(l) + 1;
 end
-% r = [550 450] => 550 seabass | 450 Salmons
+% seabass_salmon = [550 450] => 550 seabass | 450 Salmons
 end
 
