@@ -97,6 +97,7 @@
 \section*{Aufgabe 1}
 
 	\begin{itemize} 
+		
 	\item[a)] Sei H eine Hypothese und D Daten. Dann lautet der Satz von Bayes: $$p(H|D) = \frac{p(D|H)p(H)}{p(D)}$$
 	Die einzelnen Terme werden im Folgenden anhand des Beispiel der Klassifizierung von Lachsen und Barschen erklärt.\\
 	$p(D|H)$ ist die likelihood, also die Wahrscheinlichkeit für die Daten, gegeben die Hypothese. Das bedeutet im Beispiel, wie wahrscheinlich ist es, dass diese Daten auftreten und die Hypothese, dass der Fisch zB ein Lachs ist.\\
@@ -104,35 +105,25 @@
 	$p(D)$ ist die evidence, die Wk, die gegebenen Daten zu beobachten. Wie wahrscheinlich ist es, dass ein Fisch ein Lachs ist.\\
 	$p(H|D)$ nennt man die A-posteriori-Wahrscheinlichkeit, also die Wk, dass die Hypothese stimmt, gegeben die Daten. Die Wahrscheinlichkeit, dass der Fisch tatsächlich ein Lachs ist, gegeben die Daten.
 
-	%\item[a)] Der Satz von Bayes:\\ \ \\
-	%$prob(A|B) = \frac{prob(B|A) \cdot prob(A)}{prob(B)}$\\
-	%\ \\
-	%prob(B|A) ist die likelihood, prob(A) die A-Priori-Wahrscheinlichkeit fuer die Hypothese, prob(B) die A-Priori-Wahrscheinlichkeit fuer die Daten und das Ergebnis ist die A-Posteriori-Wahrscheinlichkeit.\\
-	%\ \\
-	%Bei der Klassifizierung von Barschen und Lachsen wird damit bestimmt wie wahrscheinlich es ist, dass anhand der Wahrscheinlichkeit der Laenge und dass es ein Lachs ist, dass sich um die Lachs handelt. 
-%\end{itemize}
+
+	\item[(b)] Für die Bewertungen verschiedener Hypothesen werden keine absoluten Wahrscheinlichkeiten benötigt. Deshalb kann der Nenner hier vernachlässigt werden, da er lediglich als "Skalierungsfaktor" dient. Möchten wir jedoch die absolute a posteriori Wahrscheinlichkeit wissen, so benötigen wir den Nenner.
 
 
 
-
-
-
-\item[(c)]
-Mithilfe der Bayes'schen Entscheidungsregel können zwischen zwei Hypothesen unterscheiden in dem wir deren a priori Wahrscheinlichkeiten vergleichen. Hierfür gilt:\\
-$
-\omega_1 \text{, wenn:} P(\omega_1) > P(\omega_2)\\
-\omega_2 \text{ sonst.}
-$
+	\item[(c)]
+	Mithilfe der Bayes'schen Entscheidungsregel können zwischen zwei Hypothesen unterscheiden in dem wir deren a priori Wahrscheinlichkeiten vergleichen. Hierfür gilt:\\
+	$
+	\omega_1 \text{, wenn:} P(\omega_1) > P(\omega_2)\\
+	\omega_2 \text{ sonst.}
+	$
 
 
 
 \item[(d)]
-
-
-Da es in der Grundmenge des Wahrscheinlichkeitsraums lediglich zwei Variablen ($\omega_1, \omega_2$). Die Wahrscheinlichkeiten für alle Elemente des Grundraumes müssen nach der Summenregel 1 ergeben, da 
-in diesem Fall die eine Variable dem Komplement der Anderen entspricht.
-\\
-Auf Folie 36 sind die Integrale jeweils 1, da es sich um Wahrscheinlichkeitsdichtefuntionen handelt. Auf Folie 38 ist dies nicht der Fall.
+	Da es in der Grundmenge des Wahrscheinlichkeitsraums lediglich zwei Variablen ($\omega_1, \omega_2$). Die Wahrscheinlichkeiten für alle Elemente des Grundraumes müssen nach der Summenregel 1 ergeben, da 
+	in diesem Fall die eine Variable dem Komplement der Anderen entspricht.
+	\\
+	Auf Folie 36 sind die Integrale jeweils 1, da es sich um Wahrscheinlichkeitsdichtefuntionen handelt. Auf Folie 38 ist dies nicht der Fall.
 
 
 \item[(e)] Wir können verschiedene Entscheidungsregeln aufstellen. Möchten wir beispielsweise einen Fehler minimieren, so können wir die Wahrscheinlichkeiten für einen Fehler, gegeben bestimmten Daten berechnen.\\
