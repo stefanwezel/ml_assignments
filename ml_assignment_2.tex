@@ -192,9 +192,9 @@ $\\
 		\includegraphics*[scale=0.2]{assignment2_data/plots/virginica_pb.png}\\
 		\ \\
 		Jeweils von links nach rechts sepale Laenge, sepale Breite, petale Laenge, petale, Breite.\\ \ \\
-		Die Daten sind mehr oder weniger Normalverteilt, aber es gibt ab und an Intervalle die nicht in den Trainingsdaten nicht auftauchen.\\
+		Die Daten sind mehr oder weniger normalverteilt, aber es gibt ab und an Wert-Intervalle die in den Trainingsdaten nicht auftauchen. Dies ist vorallem bemerkenswert, weil oft Intervalle mit nächst kleineren und nächst größeren Werten sehr häufig sind. Die Verteilungen sind für die jeweiligen Arten recht unterschiedlich. So ist beispielsweise die petale Länge der Versicolor nach rechts geneigt, während die der Virginica nach links geneigt ist.\\
 		%TODO Beschreibung ergaenzen.
-	\item[c)] Setosa:\\
+	\item[c)] \textbf{Setosa:}\\
 	\begin{tabular}{c|c|c|c|c}
 		&sepale Länge & sepale Breite & petale Länge & petale Breite\\
 		\hline
@@ -232,8 +232,9 @@ $\\
 		\item Zwischen Petaler Länge und petaler Breite scheint ein leichter Zusammenhang zu bestehen, d.h. wenn die petale Länge größer ist, ist oft auch die petale Breite größer.\\ \includegraphics[width=0.7\linewidth]{assignment2_data/plots/4fiii}
 		\item Zwischen sepaler Länge und sepaler Breite besteht ein klarer Zusammenhang. Ist die sepale Länge groß, so ist die sepale Breite ebenfalls groß.\\  \includegraphics[width=0.7\linewidth]{assignment2_data/plots/4fiv}
 	\end{itemize}
-	\item[g)] Der einzige Unterschied in der Klassifikation besteht darin, dass diesmal alle Datenpunkte richtig klassifiziert wurden. 
-	%TODO Beispielplot
+	\item[g)] Der einzige Unterschied in der Klassifikation besteht darin, dass diesmal alle Datenpunkte richtig klassifiziert wurden.\\
+	Folgender Plot verdeutlicht die Klassifizierung des Datenpunktes 7 im Virginica Test-Datensatz. Man sieht, dass der Punkt unter der Annahme, dass es eine Virginica ist, eine geringere Wk hat als unter der Annahme, dass eine Versicolor ist. Deswegen wird der Punkt hier falsch klassifiziert. Unter einer multivariaten Normalverteilung ist die Wk jedoch höher (die anderen Wks wurden hier nicht eingetragen, weil sie alle ungefähr Null betragen).\\
+	\includegraphics[width=.6\linewidth]{assignment2_data/plots/beispielplot4f}
 
 \end{itemize}
 \end{document}

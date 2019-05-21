@@ -260,9 +260,15 @@ setosa_results_mvn
 versicolor_results_mvn
 virginica_results_mvn
 
-plot(versicolor_results_mvn(1:10, 2))
-hold on 
-plot(versicolor_results_mvn(1:10, 3))
-plot(versicolor_results_mvn(1:10, 4))
-hold off
+% plot for 4g
+% plot(virginica_results_mvn(6:9, 4))
+% hold on 
+% plot(virginica_results(6:9, 4))
+% plot(virginica_results(6:9, 3))
+% plot(virginica_results(6:9, 2))
+% hold off
+% 
+% legend('prob(Vi|Vi) (mvn)', 'prob(Vi|Vi)', 'prob(Vi|Ve)', 'prob(Vi|Se)')
+% xticks([1 2 3 4])
+% xticklabels({'6', '7', '8', '9'})
 end
