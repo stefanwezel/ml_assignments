@@ -5,14 +5,35 @@ setosa_data = csvread('trainingSetosa.csv');
 versicolor_data = csvread('trainingVersicolor.csv');
 virginica_data = csvread('trainingVirginica.csv');
 
-% b)
-% histogram(virginica_pb, 10)
+% b),
+% the following code automaticly creates the histograms and saves them
+% because we don't want to create them over again it's commented out.
 
+% for i = 1:4
+%     ending = '';
+%     if i == 1
+%         ending = '_sl';
+%     elseif i == 2
+%         ending = '_sb';
+%     elseif i == 3
+%         ending = '_pl';
+%     else
+%         ending = '_pb';
+%     end
+%     setosa_hist = histogram(setosa_data(1:40,i), 10);
+%     saveas(setosa_hist, strcat('setosa',ending),'png');
+%     versicolor_hist = histogram(versicolor_data(1:40,i), 10);
+%     saveas(versicolor_hist, strcat('versicolor', ending),'png');
+%     virginica_hist = histogram(virginica_data(1:40,i), 10);
+%     saveas(virginica_hist, strcat('virginica', ending),'png');
+% end
 % c)
 setosa = [];
 versicolor = [];
 virginica = [];
 
+% setosa, versicolor and virginica save their respective mean, standard
+% deviance and variance
 setosa = [mean(setosa_data); sqrt(var(setosa_data)); var(setosa_data)];
 versicolor = [mean(versicolor_data); sqrt(var(versicolor_data)); var(versicolor_data)];
 virginica = [mean(virginica_data); sqrt(var(virginica_data)); var(virginica_data)];
@@ -26,6 +47,9 @@ setosa_test = csvread('testSetosa.csv');
 versicolor_test = csvread('testVersicolor.csv');
 virginica_test = csvread('testVirginica.csv');
 
+% in the following, the likelihood for the test data given the training
+% data is stored
+% prob_x_y stands for prob(x|y)
 prob_s_s = normpdf(setosa_test, setosa(1,1:4), setosa(2,1:4));
 prob_ve_s = normpdf(versicolor_test, setosa(1,1:4), setosa(2,1:4));
 prob_vi_s = normpdf(virginica_test, setosa(1,1:4), setosa(2,1:4));
@@ -39,6 +63,7 @@ prob_ve_vi = normpdf(versicolor_test, virginica(1,1:4), virginica(2,1:4));
 prob_vi_vi = normpdf(virginica_test, virginica(1,1:4), virginica(2,1:4));
 
 %e)
+% this function multiplies the values of each row in a table
     function [result] = row_mult(x) 
         result = x(1:size(x,1),1);
         for j = 2:size(x,2)
@@ -46,6 +71,7 @@ prob_vi_vi = normpdf(virginica_test, virginica(1,1:4), virginica(2,1:4));
         end
     end
 
+% we run through the 
 setosa_results = [];
 for i = 1:size(setosa_test, 1)
     max = 0;
@@ -126,17 +152,17 @@ virginica_results
 scatter(setosa_data(1:40,4), setosa_data(1:40, 2));
 xlabel('Petale Breite')
 ylabel('Sepale Breite')
-% petale Länge gegen sepale Länge
+% petale Lï¿½nge gegen sepale Lï¿½nge
 %scatter(setosa_data(1:40,3), setosa_data(1:40, 1))
-%xlabel('Petale Länge')
-%ylabel('Sepale Länge')
-% petale Länge gegen petale Breite
+%xlabel('Petale Lï¿½nge')
+%ylabel('Sepale Lï¿½nge')
+% petale Lï¿½nge gegen petale Breite
 %scatter(setosa_data(1:40,3), setosa_data(1:40, 4))
-%xlabel('Petale Länge')
+%xlabel('Petale Lï¿½nge')
 %ylabel('Petale Breite')
-% sepale Länge gegen sepale Breite
+% sepale Lï¿½nge gegen sepale Breite
 %scatter(setosa_data(1:40,1), setosa_data(1:40, 2))
-%xlabel('Sepale Länge')
+%xlabel('Sepale Lï¿½nge')
 %ylabel('Sepale Breite')
 
 %g)
@@ -166,41 +192,66 @@ for i = 1:size(setosa_test, 1)
      p_Ve_i = prob_s_ve_mvn(i) * 1/3;
      setosa_results_mvn(i, 3) = p_Ve_i;
     if p_Ve_i > max
-        setosa_results_mvn(i, 1) = false;
         max = p_Ve_i;
     end
     p_Vi_i = prob_s_vi_mvn(i) * 1/3;
     setosa_results_mvn(i, 4) = p_Vi_i;
     if p_Vi_i > max
-        setosa_results_mvn(i, 1) = false;
         max = p_Vi_i;
     end
 end
 
 versicolor_results_mvn = [];
-for i = 1:size(setosa_test, 1)
+for i = 1:size(versicolor_test, 1)
     max = 0;
     versicolor_results_mvn(i, 1) = false;
-    p_S_i = prob_s_s_mvn(i) * 1/3;
+    p_S_i = prob_ve_s_mvn(i) * 1/3;
     versicolor_results_mvn(i, 2) = p_S_i;
     if p_S_i > max
-        setosa_results_mvn(i, 1) = true;
         max = p_S_i;
     end
-     p_Ve_i = prob_s_ve_mvn(i) * 1/3;
-     setosa_results_mvn(i, 3) = p_Ve_i;
+     p_Ve_i = prob_ve_ve_mvn(i) * 1/3;
+     versicolor_results_mvn(i, 3) = p_Ve_i;
     if p_Ve_i > max
-        setosa_results_mvn(i, 1) = false;
+         versicolor_results_mvn(i, 1) = true;
         max = p_Ve_i;
     end
-    p_Vi_i = prob_s_vi_mvn(i) * 1/3;
-    setosa_results_mvn(i, 4) = p_Vi_i;
+    p_Vi_i = prob_ve_vi_mvn(i) * 1/3;
+    versicolor_results_mvn(i, 4) = p_Vi_i;
     if p_Vi_i > max
-        setosa_results_mvn(i, 1) = false;
         max = p_Vi_i;
     end
 end
 
-versicolor_results_mvn = [];
+virginica_results_mvn = [];
+for i = 1:size(virginica_test, 1)
+    max = 0;
+    virginica_results_mvn(i, 1) = false;
+    p_S_i = prob_vi_s_mvn(i) * 1/3;
+    virginica_results_mvn(i, 2) = p_S_i;
+    if p_S_i > max
+        max = p_S_i;
+    end
+     p_Ve_i = prob_vi_ve_mvn(i) * 1/3;
+     virginica_results_mvn(i, 3) = p_Ve_i;
+    if p_Ve_i > max
+        max = p_Ve_i;
+    end
+    p_Vi_i = prob_vi_vi_mvn(i) * 1/3;
+    virginica_results_mvn(i, 4) = p_Vi_i;
+    if p_Vi_i > max
+        virginica_results_mvn(i, 1) = true;
+        max = p_Vi_i;
+    end
+end
 
+setosa_results_mvn
+versicolor_results_mvn
+virginica_results_mvn
+
+plot(versicolor_results_mvn(1:10, 2))
+hold on 
+plot(versicolor_results_mvn(1:10, 3))
+plot(versicolor_results_mvn(1:10, 4))
+hold off
 end
