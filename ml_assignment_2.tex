@@ -94,123 +94,123 @@
 
 \begin{document}
 	
-\section*{Aufgabe 1}
-
+	\section*{Aufgabe 1}
+	
 	\begin{itemize} 
 		
-	\item[a)] Sei H eine Hypothese und D Daten. Dann lautet der Satz von Bayes: $$p(H|D) = \frac{p(D|H)p(H)}{p(D)}$$
-	Die einzelnen Terme werden im Folgenden anhand des Beispiel der Klassifizierung von Lachsen und Barschen erklärt.\\
-	$p(D|H)$ ist die likelihood, also die Wahrscheinlichkeit für die Daten, gegeben die Hypothese. Das bedeutet im Beispiel, wie wahrscheinlich ist es, dass diese Daten auftreten und die Hypothese, dass der Fisch zB ein Lachs ist.\\
-	$p(H)$ ist die A-priori-Wahrscheinlichkeit, also die Wk, dass die Hypothese stimmt. Die Wk dafür, dass ein Fisch ein Lachs ist.\\
-	$p(D)$ ist die evidence, die Wk, die gegebenen Daten zu beobachten. Wie wahrscheinlich ist es, dass ein Fisch ein Lachs ist.\\
-	$p(H|D)$ nennt man die A-posteriori-Wahrscheinlichkeit, also die Wk, dass die Hypothese stimmt, gegeben die Daten. Die Wahrscheinlichkeit, dass der Fisch tatsächlich ein Lachs ist, gegeben die Daten.
-
-
-	\item[(b)] Für die Bewertungen verschiedener Hypothesen werden keine absoluten Wahrscheinlichkeiten benötigt. Deshalb kann der Nenner hier vernachlässigt werden, da er lediglich als "Skalierungsfaktor" dient. Möchten wir jedoch die absolute a posteriori Wahrscheinlichkeit wissen, so benötigen wir den Nenner.
-
-
-
-	\item[(c)]
-	Mithilfe der Bayes'schen Entscheidungsregel können zwischen zwei Hypothesen unterscheiden in dem wir deren a priori Wahrscheinlichkeiten vergleichen. Hierfür gilt:\\
-	$
-	\omega_1 \text{, wenn:} P(\omega_1) > P(\omega_2)\\
-	\omega_2 \text{ sonst.}
-	$
-
-
-
-\item[(d)]
-	Da es in der Grundmenge des Wahrscheinlichkeitsraums lediglich zwei Variablen ($\omega_1, \omega_2$). Die Wahrscheinlichkeiten für alle Elemente des Grundraumes müssen nach der Summenregel 1 ergeben, da 
-	in diesem Fall die eine Variable dem Komplement der Anderen entspricht.
-	\\
-	Auf Folie 36 sind die Integrale jeweils 1, da es sich um Wahrscheinlichkeitsdichtefuntionen handelt. Auf Folie 38 ist dies nicht der Fall.
-
-
-\item[(e)] Wir können verschiedene Entscheidungsregeln aufstellen. Möchten wir beispielsweise einen Fehler minimieren, so können wir die Wahrscheinlichkeiten für einen Fehler, gegeben bestimmten Daten berechnen.\\
-Diese Wahrscheinlichkeiten ergeben sich aus Wahrscheinlichkeiten verschiedener Entscheidungen (bspw.$\omega_1, \omega_2$) gegeben der Daten. Wir nehmen dann die Entscheidung, bei der der Fehler geringer ist.\\
-Es ergibt sich also:\\
-$
-\omega_1 \text{, wenn:} P(\omega_1|x) > P(\omega_2|x)\\
-\omega_2 \text{ sonst.}
-$\\
-
-\item[(f)] Wir stellen zunächst eine Loss-Funktion auf. Diese bildet eine Entscheidung gegeben dem wirklichen Zustand auf einen Verlustwert ab. Der Erwartungswert des Verlusts einer Entscheidung ist dann das bedingte Risiko.
-
-
-
-\item[(g)] Das Bayes Risk ist das kleinste Gesamtrisiko, das erreicht werden kann. Das Gesamtrisiko ist das Integral der Funktion der Risiken gegeben der Daten aller Zustände multipliziert mit den jeweiligen Wahrscheinlichkeiten der Daten.
-
-
-
-
-\end{itemize}
-
-\section*{Aufgabe 2}
-\begin{itemize}
-	\item[(a)/(b)] Histogram:\\
-	\includegraphics*[scale = 0.5]{assignment2_data/plots/hist_fish.png}
+		\item[a)] Sei H eine Hypothese und D Daten. Dann lautet der Satz von Bayes: $$p(H|D) = \frac{p(D|H)p(H)}{p(D)}$$
+		Die einzelnen Terme werden im Folgenden anhand des Beispiel der Klassifizierung von Lachsen und Barschen erklärt.\\
+		$p(D|H)$ ist die likelihood, also die Wahrscheinlichkeit für die Daten, gegeben die Hypothese. Das bedeutet im Beispiel, wie wahrscheinlich ist es, dass diese Daten auftreten und die Hypothese, dass der Fisch zB ein Lachs ist.\\
+		$p(H)$ ist die A-priori-Wahrscheinlichkeit, also die Wk, dass die Hypothese stimmt. Die Wk dafür, dass ein Fisch ein Lachs ist.\\
+		$p(D)$ ist die evidence, die Wk, die gegebenen Daten zu beobachten. Wie wahrscheinlich ist es, dass ein Fisch ein Lachs ist.\\
+		$p(H|D)$ nennt man die A-posteriori-Wahrscheinlichkeit, also die Wk, dass die Hypothese stimmt, gegeben die Daten. Die Wahrscheinlichkeit, dass der Fisch tatsächlich ein Lachs ist, gegeben die Daten.
+		
+		
+		\item[(b)] Für die Bewertungen verschiedener Hypothesen werden keine absoluten Wahrscheinlichkeiten benötigt. Deshalb kann der Nenner hier vernachlässigt werden, da er lediglich als "Skalierungsfaktor" dient. Möchten wir jedoch die absolute a posteriori Wahrscheinlichkeit wissen, so benötigen wir den Nenner.
+		
+		
+		
+		\item[(c)]
+		Mithilfe der Bayes'schen Entscheidungsregel können zwischen zwei Hypothesen unterscheiden in dem wir deren a priori Wahrscheinlichkeiten vergleichen. Hierfür gilt:\\
+		$
+		\omega_1 \text{, wenn:} P(\omega_1) > P(\omega_2)\\
+		\omega_2 \text{ sonst.}
+		$
+		
+		
+		
+		\item[(d)]
+		Da es in der Grundmenge des Wahrscheinlichkeitsraums lediglich zwei Variablen ($\omega_1, \omega_2$). Die Wahrscheinlichkeiten für alle Elemente des Grundraumes müssen nach der Summenregel 1 ergeben, da 
+		in diesem Fall die eine Variable dem Komplement der Anderen entspricht.
+		\\
+		Auf Folie 36 sind die Integrale jeweils 1, da es sich um Wahrscheinlichkeitsdichtefuntionen handelt. Auf Folie 38 ist dies nicht der Fall.
+		
+		
+		\item[(e)] Wir können verschiedene Entscheidungsregeln aufstellen. Möchten wir beispielsweise einen Fehler minimieren, so können wir die Wahrscheinlichkeiten für einen Fehler, gegeben bestimmten Daten berechnen.\\
+		Diese Wahrscheinlichkeiten ergeben sich aus Wahrscheinlichkeiten verschiedener Entscheidungen (bspw.$\omega_1, \omega_2$) gegeben der Daten. Wir nehmen dann die Entscheidung, bei der der Fehler geringer ist.\\
+		Es ergibt sich also:\\
+		$
+		\omega_1 \text{, wenn:} P(\omega_1|x) > P(\omega_2|x)\\
+		\omega_2 \text{ sonst.}
+		$\\
+		
+		\item[(f)] Wir stellen zunächst eine Loss-Funktion auf. Diese bildet eine Entscheidung gegeben dem wirklichen Zustand auf einen Verlustwert ab. Der Erwartungswert des Verlusts einer Entscheidung ist dann das bedingte Risiko.
+		
+		
+		
+		\item[(g)] Das Bayes Risk ist das kleinste Gesamtrisiko, das erreicht werden kann. Das Gesamtrisiko ist das Integral der Funktion der Risiken gegeben der Daten aller Zustände multipliziert mit den jeweiligen Wahrscheinlichkeiten der Daten.
+		
+		
+		
+		
+	\end{itemize}
 	
-	\item[(c)]
-	Likelihood:
-	\begin{lstlisting}
+	\section*{Aufgabe 2}
+	\begin{itemize}
+		\item[(a)/(b)] Histogram:\\
+		\includegraphics*[scale = 0.5]{assignment2_data/plots/hist_fish.png}
+		
+		\item[(c)]
+		Likelihood:
+		\begin{lstlisting}
 		function [y] = likelihood(x, mu, s)
-			y = normpdf(x, mu, s) * 2;
+		y = normpdf(x, mu, s) * 2;
 		end
-	\end{lstlisting}
-	Evidenz: 
-	\begin{lstlisting}
+		\end{lstlisting}
+		Evidenz: 
+		\begin{lstlisting}
 		function [y] = evidence(x)
-			y = normpdf(x,mu_seabass, sigma_seabass) + normpdf(x,mu_salmon, sigma_salmon);
+		y = normpdf(x,mu_seabass, sigma_seabass) + normpdf(x,mu_salmon, sigma_salmon);
 		end
-	\end{lstlisting}
-	A posteriori:
-	\begin{lstlisting}
+		\end{lstlisting}
+		A posteriori:
+		\begin{lstlisting}
 		function [y] = apost(x, omega)
-			if omega == 1
-				prob = (likelihood(x, mu_seabass, sigma_seabass) * apriori_hypothesis)/evidence(x);
-			else
-				prob = (likelihood(x, mu_salmon, sigma_salmon) * apriori_hypothesis)/evidence(x);
-			end
-			y = prob;
+		if omega == 1
+		prob = (likelihood(x, mu_seabass, sigma_seabass) * apriori_hypothesis)/evidence(x);
+		else
+		prob = (likelihood(x, mu_salmon, sigma_salmon) * apriori_hypothesis)/evidence(x);
 		end
-	\end{lstlisting}
+		y = prob;
+		end
+		\end{lstlisting}
+		
+		\item[d)] bedingte Funktionen:\\\\
+		Lachs:\\
+		\includegraphics*[scale=0.5]{assignment2_data/plots/cond_function_salmon.png}\\ \ \\
+		Barsch:\\
+		\includegraphics*[scale=0.5]{assignment2_data/plots/cond_function_seabass.png}\\ \ \\
+		Auf der x-Achse sind die Fischlaengen der Samples in Meter, auf der y-Achse sind die Wahrscheinlichkeiten dafuer, dass es der jeweilige Fisch ist.\\
+		Es faellt auf, dass der Plot fuer Barsch der invertierte Plot von dem des Lachses ist.\\
+		Bei der Klassifikation schaut man sich die Wahrscheinlichkeit zunaechst dafuer an, dass es ein Lachs ist und dann dass es ein Barsch ist. Man waehlt nun diejenigen Fisch aus, der die hoehere Wahrscheinlichkeit hat.\\ 
+		
+		\item[(e)] Fische die größer als 1,26m sind eher Lachse und die, die kleiner sind eher Barsche. Der Wert ist der Schnittpunkt der beiden bedingten Wahrscheinlichkeitsfunktionen.
+		
+		\item[(f)] Die Wahrscheinlichkeit für Barsch liegt bei 62,2\%. Die für Lachs bei 37.8\%.\\
+		Das Ergebnis ist vermultich nicht besonders verlässlich, da mindestens 18\% falsch klasifiziert sind, da es nach dem Modell eigentlich 50\% sein sollten. Es könnten aber noch mehr sein, da nur anhand der Länge klassifiziert wird, welches kein eindeutiges feature ist. 
+		
+		
+		
+		
+		
+		\item[g)] Wir gehen davon aus, dass es 50\% Lachse und 50\% Barsche gibt. Dies wirkt sich direkt auf die a posteriori Wahrscheinlichkeit aus, anhand deren wir letztendlich klassifizieren. Auch die Annahme, dass die beiden Arten normalverteilt sind, sowie Parameter $\mu$ und $\sigma$ spielen eine Rolle, da wir diese für die likelihood benötigen, welche auch in der Berechnung der a posteriori Wahrscheinlichkeit verwendet wird und sich somit auf die Klassifizierung auswirkt.
+		
+		
+	\end{itemize}
 	
-	\item[d)] bedingte Funktionen:\\\\
-	Lachs:\\
-	\includegraphics*[scale=0.5]{assignment2_data/plots/cond_function_salmon.png}\\ \ \\
-	Barsch:\\
-	\includegraphics*[scale=0.5]{assignment2_data/plots/cond_function_seabass.png}\\ \ \\
-	Auf der x-Achse sind die Fischlaengen der Samples in Meter, auf der y-Achse sind die Wahrscheinlichkeiten dafuer, dass es der jeweilige Fisch ist.\\
-	Es faellt auf, dass der Plot fuer Barsch der invertierte Plot von dem des Lachses ist.\\
-	Bei der Klassifikation schaut man sich die Wahrscheinlichkeit zunaechst dafuer an, dass es ein Lachs ist und dann dass es ein Barsch ist. Man waehlt nun diejenigen Fisch aus, der die hoehere Wahrscheinlichkeit hat.\\ 
+	\section*{Aufgabe 3}
+	%TODO plots beschreiben/erklaerungen
+	\begin{itemize}
+		\item[b)] conditional risk im Intervall [0 2]:\\
+		Lachs:\\
+		\includegraphics*[scale = 0.5]{assignment2_data/plots/cond_risk_salmon.png}\\ \ \\
+		Barsch:\\
+		\includegraphics*[scale = 0.5]{assignment2_data/plots/cond_risk_seabass.png}
+	\end{itemize}
 	
-	\item[(e)] Fische die größer als 1,26m sind eher Lachse und die, die kleiner sind eher Barsche. Der Wert ist der Schnittpunkt der beiden bedingten Wahrscheinlichkeitsfunktionen.
-	
-	\item[(f)] Die Wahrscheinlichkeit für Barsch liegt bei 62,2\%. Die für Lachs bei 37.8\%.\\
-	Das Ergebnis ist vermultich nicht besonders verlässlich, da mindestens 18\% falsch klasifiziert sind, da es nach dem Modell eigentlich 50\% sein sollten. Es könnten aber noch mehr sein, da nur anhand der Länge klassifiziert wird, welches kein eindeutiges feature ist. 
-	
-	
-	
-	
-	
-	\item[g)] Wir gehen davon aus, dass es 50\% Lachse und 50\% Barsche gibt. Dies wirkt sich direkt auf die a posteriori Wahrscheinlichkeit aus, anhand deren wir letztendlich klassifizieren. Auch die Annahme, dass die beiden Arten normalverteilt sind, sowie Parameter $\mu$ und $\sigma$ spielen eine Rolle, da wir diese für die likelihood benötigen, welche auch in der Berechnung der a posteriori Wahrscheinlichkeit verwendet wird und sich somit auf die Klassifizierung auswirkt.
-	
-	
-\end{itemize}
-
-\section*{Aufgabe 3}
-%TODO plots beschreiben/erklaerungen
-\begin{itemize}
-	\item[b)] conditional risk im Intervall [0 2]:\\
-	Lachs:\\
-	\includegraphics*[scale = 0.5]{assignment2_data/plots/cond_risk_salmon.png}\\ \ \\
-	Barsch:\\
-	\includegraphics*[scale = 0.5]{assignment2_data/plots/cond_risk_seabass.png}
-\end{itemize}
-
-\section*{Aufgabe 4}
-\begin{itemize}
-	\item[b)] Setosa:\\
+	\section*{Aufgabe 4}
+	\begin{itemize}
+		\item[b)] Setosa:\\
 		\includegraphics*[scale=0.2]{assignment2_data/plots/setosa_sl.png}
 		\includegraphics*[scale=0.2]{assignment2_data/plots/setosa_sb.png}
 		\includegraphics*[scale=0.2]{assignment2_data/plots/setosa_pb.png}
@@ -230,48 +230,48 @@ $\\
 		Jeweils von links nach rechts sepale Laenge, sepale Breite, petale Laenge, petale, Breite.\\ \ \\
 		Die Daten sind mehr oder weniger Normalverteilt, aber es gibt ab und an Intervalle die nicht in den Trainingsdaten nicht auftauchen.\\
 		%TODO Beschreibung ergaenzen.
-	\item[c)] Setosa:\\
-	\begin{tabular}{c|c|c|c|c}
-		&sepale Länge & sepale Breite & petale Länge & petale Breite\\
-		\hline
-		Mittelwert & 5.0425 &   3.4575 &   1.4650  &  0.2525 \\
-		SD & 0.3601 &   0.3928  &  0.1875  &  0.1109\\
-		Varianz & 0.1297  &  0.1543  &  0.0352  &  0.0123\\
-	\end{tabular}\\ \\
-\textbf{Versicolor}:\\
-\begin{tabular}{c|c|c|c|c}
-	&sepale Länge & sepale Breite & petale Länge & petale Breite\\
-	\hline
-	Mittelwert & 5.8950 &   2.7450  &  4.2325  &  1.3125 \\
-	SD & 0.4517  &  0.3063  &  0.4676  &  0.2040\\
-	Varianz & 0.2041  &  0.0938  &  0.2187  &  0.0416\\
-\end{tabular}\\ \\
-\textbf{Virginica}:\\
-\begin{tabular}{c|c|c|c|c}
-	&sepale Länge & sepale Breite & petale Länge & petale Breite\\
-	\hline
-	Mittelwert & 6.5925  &  2.9825  &  5.4975  &  2.0225\\
-	SD & 0.5989 &   0.3226  &  0.5332  &  0.2741\\
-	Varianz & 0.3587  &  0.1040  &  0.2844  &  0.0751\\
-\end{tabular}
-	\item[d)] Siehe code
-	\item[e)] Die Ergebnisse sind in folgender Tabelle zusammengefasst:\\ \\ \begin{tabular}{c|c|c|c|c}
-		Art & true-positives & true-negatives & false-positives & false-negatives\\
-		\hline
-		Setosa & 10 & 20 & 0 & 0\\
-		Versicolor & 10 & 19 & 1 & 0\\
-		Virginica & 9 & 20 & 0& 1\\
-	\end{tabular}
-	\item[f)] \begin{itemize}
-		\item Petale Breite und sepale Breite scheinen relativ unkorreliert zu sein. Das bedeutet, dass Wissen über die petale Breite einer Schwertlilie keine Aussagen über deren sepale Breite zulässt.\\ \includegraphics[width=0.7\linewidth]{assignment2_data/plots/4fi}
-		\item Petale Länge und sepale Länge scheinen ebenfalls unkorreliert zu sein.\\ \includegraphics[width=0.7\linewidth]{assignment2_data/plots/4fii}
-		\item Zwischen Petaler Länge und petaler Breite scheint ein leichter Zusammenhang zu bestehen, d.h. wenn die petale Länge größer ist, ist oft auch die petale Breite größer.\\ \includegraphics[width=0.7\linewidth]{assignment2_data/plots/4fiii}
-		\item Zwischen sepaler Länge und sepaler Breite besteht ein klarer Zusammenhang. Ist die sepale Länge groß, so ist die sepale Breite ebenfalls groß.\\  \includegraphics[width=0.7\linewidth]{assignment2_data/plots/4fiv}
+		\item[c)] Setosa:\\
+		\begin{tabular}{c|c|c|c|c}
+			&sepale Länge & sepale Breite & petale Länge & petale Breite\\
+			\hline
+			Mittelwert & 5.0425 &   3.4575 &   1.4650  &  0.2525 \\
+			SD & 0.3601 &   0.3928  &  0.1875  &  0.1109\\
+			Varianz & 0.1297  &  0.1543  &  0.0352  &  0.0123\\
+		\end{tabular}\\ \\
+		\textbf{Versicolor}:\\
+		\begin{tabular}{c|c|c|c|c}
+			&sepale Länge & sepale Breite & petale Länge & petale Breite\\
+			\hline
+			Mittelwert & 5.8950 &   2.7450  &  4.2325  &  1.3125 \\
+			SD & 0.4517  &  0.3063  &  0.4676  &  0.2040\\
+			Varianz & 0.2041  &  0.0938  &  0.2187  &  0.0416\\
+		\end{tabular}\\ \\
+		\textbf{Virginica}:\\
+		\begin{tabular}{c|c|c|c|c}
+			&sepale Länge & sepale Breite & petale Länge & petale Breite\\
+			\hline
+			Mittelwert & 6.5925  &  2.9825  &  5.4975  &  2.0225\\
+			SD & 0.5989 &   0.3226  &  0.5332  &  0.2741\\
+			Varianz & 0.3587  &  0.1040  &  0.2844  &  0.0751\\
+		\end{tabular}
+		\item[d)] Siehe code
+		\item[e)] Die Ergebnisse sind in folgender Tabelle zusammengefasst:\\ \\ \begin{tabular}{c|c|c|c|c}
+			Art & true-positives & true-negatives & false-positives & false-negatives\\
+			\hline
+			Setosa & 10 & 20 & 0 & 0\\
+			Versicolor & 10 & 19 & 1 & 0\\
+			Virginica & 9 & 20 & 0& 1\\
+		\end{tabular}
+		\item[f)] \begin{itemize}
+			\item Petale Breite und sepale Breite scheinen relativ unkorreliert zu sein. Das bedeutet, dass Wissen über die petale Breite einer Schwertlilie keine Aussagen über deren sepale Breite zulässt.\\ \includegraphics[width=0.7\linewidth]{assignment2_data/plots/4fi}
+			\item Petale Länge und sepale Länge scheinen ebenfalls unkorreliert zu sein.\\ \includegraphics[width=0.7\linewidth]{assignment2_data/plots/4fii}
+			\item Zwischen Petaler Länge und petaler Breite scheint ein leichter Zusammenhang zu bestehen, d.h. wenn die petale Länge größer ist, ist oft auch die petale Breite größer.\\ \includegraphics[width=0.7\linewidth]{assignment2_data/plots/4fiii}
+			\item Zwischen sepaler Länge und sepaler Breite besteht ein klarer Zusammenhang. Ist die sepale Länge groß, so ist die sepale Breite ebenfalls groß.\\  \includegraphics[width=0.7\linewidth]{assignment2_data/plots/4fiv}
+		\end{itemize}
+		\item[g)] Der einzige Unterschied in der Klassifikation besteht darin, dass diesmal alle Datenpunkte richtig klassifiziert wurden. 
+		%TODO Beispielplot
+		
 	\end{itemize}
-	\item[g)] Der einzige Unterschied in der Klassifikation besteht darin, dass diesmal alle Datenpunkte richtig klassifiziert wurden. 
-	%TODO Beispielplot
-
-\end{itemize}
-
-
+	
+	
 \end{document}

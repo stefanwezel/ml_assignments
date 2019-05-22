@@ -32,6 +32,8 @@ setosa = [];
 versicolor = [];
 virginica = [];
 
+% setosa, versicolor and virginica save their respective mean, standard
+% deviance and variance
 setosa = [mean(setosa_data); sqrt(var(setosa_data)); var(setosa_data)];
 versicolor = [mean(versicolor_data); sqrt(var(versicolor_data)); var(versicolor_data)];
 virginica = [mean(virginica_data); sqrt(var(virginica_data)); var(virginica_data)];
@@ -45,6 +47,9 @@ setosa_test = csvread('testSetosa.csv');
 versicolor_test = csvread('testVersicolor.csv');
 virginica_test = csvread('testVirginica.csv');
 
+% in the following, the likelihood for the test data given the training
+% data is stored
+% prob_x_y stands for prob(x|y)
 prob_s_s = normpdf(setosa_test, setosa(1,1:4), setosa(2,1:4));
 prob_ve_s = normpdf(versicolor_test, setosa(1,1:4), setosa(2,1:4));
 prob_vi_s = normpdf(virginica_test, setosa(1,1:4), setosa(2,1:4));
@@ -58,6 +63,7 @@ prob_ve_vi = normpdf(versicolor_test, virginica(1,1:4), virginica(2,1:4));
 prob_vi_vi = normpdf(virginica_test, virginica(1,1:4), virginica(2,1:4));
 
 %e)
+% this function multiplies the values of each row in a table
     function [result] = row_mult(x) 
         result = x(1:size(x,1),1);
         for j = 2:size(x,2)
@@ -65,6 +71,9 @@ prob_vi_vi = normpdf(virginica_test, virginica(1,1:4), virginica(2,1:4));
         end
     end
 
+% for each row in setosa_test, we check whether it has the highest
+% likelihood under the hypothesis that it's a setosa, versicolor or
+% virginica
 setosa_results = [];
 for i = 1:size(setosa_test, 1)
     max = 0;
@@ -89,6 +98,8 @@ for i = 1:size(setosa_test, 1)
     end
 end
 
+
+% the same for versicolor
 versicolor_results = [];
 
 for i = 1:size(versicolor_test, 1)
@@ -112,6 +123,7 @@ for i = 1:size(versicolor_test, 1)
     end
 end
 
+% the same for virginica
 virginica_results = [];
 
 for i = 1:size(virginica_test, 1)
@@ -136,6 +148,11 @@ for i = 1:size(virginica_test, 1)
 end
 
 % e)
+% allows us to examine the results
+% column 1: was the plant classified correctly (1/0)
+% column 2: likelihood under the hypthesis that it is a setosa
+% column 3: likelihood under the hypthesis that it is a versicolor
+% column 4: likelihood under the hypthesis that it is a virginica
 setosa_results
 versicolor_results
 virginica_results
@@ -159,6 +176,7 @@ ylabel('Sepale Breite')
 %ylabel('Sepale Breite')
 
 %g)
+% Now we do the same process as before, using mvnpdf
 prob_s_s_mvn = mvnpdf(setosa_test, setosa(1,1:4), cov(setosa_data));
 prob_ve_s_mvn = mvnpdf(versicolor_test, setosa(1,1:4), cov(setosa_data));
 prob_vi_s_mvn = mvnpdf(virginica_test, setosa(1,1:4), cov(setosa_data));
@@ -242,4 +260,15 @@ setosa_results_mvn
 versicolor_results_mvn
 virginica_results_mvn
 
+% plot for 4g
+% plot(virginica_results_mvn(6:9, 4))
+% hold on 
+% plot(virginica_results(6:9, 4))
+% plot(virginica_results(6:9, 3))
+% plot(virginica_results(6:9, 2))
+% hold off
+% 
+% legend('prob(Vi|Vi) (mvn)', 'prob(Vi|Vi)', 'prob(Vi|Ve)', 'prob(Vi|Se)')
+% xticks([1 2 3 4])
+% xticklabels({'6', '7', '8', '9'})
 end
