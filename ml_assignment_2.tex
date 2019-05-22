@@ -147,9 +147,35 @@ $\\
 
 \section*{Aufgabe 2}
 \begin{itemize}
-	\item[a)] Histogram:\\
+	\item[(a)/(b)] Histogram:\\
 	\includegraphics*[scale = 0.5]{assignment2_data/plots/hist_fish.png}
-	\item[d)] bedingte Funktionen:\\ \ \\
+	
+	\item[(c)]
+	Likelihood:
+	\begin{lstlisting}
+		function [y] = likelihood(x, mu, s)
+			y = normpdf(x, mu, s) * 2;
+		end
+	\end{lstlisting}
+	Evidenz: 
+	\begin{lstlisting}
+		function [y] = evidence(x)
+			y = normpdf(x,mu_seabass, sigma_seabass) + normpdf(x,mu_salmon, sigma_salmon);
+		end
+	\end{lstlisting}
+	A posteriori:
+	\begin{lstlisting}
+		function [y] = apost(x, omega)
+			if omega == 1
+				prob = (likelihood(x, mu_seabass, sigma_seabass) * apriori_hypothesis)/evidence(x);
+			else
+				prob = (likelihood(x, mu_salmon, sigma_salmon) * apriori_hypothesis)/evidence(x);
+			end
+			y = prob;
+		end
+	\end{lstlisting}
+	
+	\item[d)] bedingte Funktionen:\\\\
 	Lachs:\\
 	\includegraphics*[scale=0.5]{assignment2_data/plots/cond_function_salmon.png}\\ \ \\
 	Barsch:\\
@@ -157,7 +183,17 @@ $\\
 	Auf der x-Achse sind die Fischlaengen der Samples in Meter, auf der y-Achse sind die Wahrscheinlichkeiten dafuer, dass es der jeweilige Fisch ist.\\
 	Es faellt auf, dass der Plot fuer Barsch der invertierte Plot von dem des Lachses ist.\\
 	Bei der Klassifikation schaut man sich die Wahrscheinlichkeit zunaechst dafuer an, dass es ein Lachs ist und dann dass es ein Barsch ist. Man waehlt nun diejenigen Fisch aus, der die hoehere Wahrscheinlichkeit hat.\\ 
-	\item[g)] %TODO
+	
+	\item[(e)] Fische die größer als 1,26m sind eher Lachse und die, die kleiner sind eher Barsche. Der Wert ist der Schnittpunkt der beiden bedingten Wahrscheinlichkeitsfunktionen.
+	
+	\item[(f)] Die Wahrscheinlichkeit für Barsch liegt bei 62,2\%. Die für Lachs bei 37.8\%.\\
+	Das Ergebnis ist vermultich nicht besonders verlässlich, da mindestens 18\% falsch klasifiziert sind, da es nach dem Modell eigentlich 50\% sein sollten. Es könnten aber noch mehr sein, da nur anhand der Länge klassifiziert wird, welches kein eindeutiges feature ist. 
+	
+	
+	
+	
+	
+	\item[g)] Wir gehen davon aus, dass es 50\% Lachse und 50\% Barsche gibt. Dies wirkt sich direkt auf die a posteriori Wahrscheinlichkeit aus, anhand deren wir letztendlich klassifizieren. Auch die Annahme, dass die beiden Arten normalverteilt sind, sowie Parameter $\mu$ und $\sigma$ spielen eine Rolle, da wir diese für die likelihood benötigen, welche auch in der Berechnung der a posteriori Wahrscheinlichkeit verwendet wird und sich somit auf die Klassifizierung auswirkt.
 	
 	
 \end{itemize}
