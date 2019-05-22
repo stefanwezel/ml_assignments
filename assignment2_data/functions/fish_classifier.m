@@ -11,27 +11,35 @@ s = size(fish);
 seabass = [];
 salmon = [];
 seabass_counter = 0;
+apriori_hypothesis = 0.5;
+
+
+	function [y] = likelihood(x, mu, s)
+		y = normpdf(x, mu, s) * 2;
+	end
+	
+
     function [y] = evidence(x)
         y = normpdf(x,mu_seabass, sigma_seabass) + normpdf(x,mu_salmon, sigma_salmon);
     end
 
     function [y] = apost(x, omega)
         if omega == 1
-            prob = normpdf(x,mu_seabass, sigma_seabass)/evidence(x);
+            prob = (likelihood(x, mu_seabass, sigma_seabass) * apriori_hypothesis)/evidence(x);
         else
-            prob = normpdf(x,mu_salmon, sigma_salmon)/evidence(x);
+            prob = (likelihood(x, mu_salmon, sigma_salmon) * apriori_hypothesis)/evidence(x);
         end
         y = prob;
     end
 for i = 1:s(1)
     x = fish(i);
-    apostiori_salmon = apost(x,2);
-    apostiori_seabass = apost(x,1);
-    if apostiori_seabass > apostiori_salmon
+    aposteriori_salmon = apost(x,2);
+    aposteriori_seabass = apost(x,1);
+    if aposteriori_seabass > aposteriori_salmon
         seabass_counter = seabass_counter + 1;
     end
-    seabass = [seabass apostiori_seabass];
-    salmon = [salmon apostiori_salmon];
+    seabass = [seabass aposteriori_seabass];
+    salmon = [salmon aposteriori_salmon];
 end
 % seabass_counter = 622 / 62.2%
 % salmon_counter = 1000-seabass_counter = 378 / 37.8%
