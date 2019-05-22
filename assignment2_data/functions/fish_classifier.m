@@ -55,23 +55,19 @@ salmon_wrong = integral(@(x) normpdf(x,mu_salmon, sigma_salmon), -Inf, schnittpu
 risk_salmon = seabass_wrong * 0.5;
 risk_seabass = salmon_wrong * 1.2;
     function[y] = cond_risk_salmon(x)
-        if x < schnittpunkt
-            y = 0;
-        else
-            y = normpdf(x, mu_seabass, sigma_seabass) * 0.5;
-        end
+        y = normpdf(x, mu_seabass, sigma_seabass) * 0.5;
     end
     function[y] = cond_risk_seabass(x)
-        if x >= schnittpunkt
-            y = 0;
-        else
-            y = normpdf(x, mu_salmon, sigma_salmon) * 1.2;
-        end
+         y = normpdf(x, mu_salmon, sigma_salmon) * 1.2;
     end
-% cond_risk = fplot(@(x) cond_risk_salmon(x),[0 2]);
-% saveas(cond_risk, 'cond_risk_salmon.png');
-% cond_risk = fplot(@(x) cond_risk_seabass(x), [0 2]);
-% saveas(cond_risk, 'cond_risk_seabass.png')
+cond_risk = fplot(@(x) cond_risk_salmon(x),[0 3]);
+xlabel('fish length');
+ylabel('conditional risk');
+saveas(cond_risk, 'cond_risk_salmon.png');
+cond_risk = fplot(@(x) cond_risk_seabass(x), [0 3]);
+xlabel('fish length');
+ylabel('conditional risk');
+saveas(cond_risk, 'cond_risk_seabass.png');
     function[y] = decision_function(x)
         if 0.5*apost(x,1) > 1.2*apost(x,2)
             y = 1;
