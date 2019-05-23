@@ -55,10 +55,10 @@ salmon_wrong = integral(@(x) normpdf(x,mu_salmon, sigma_salmon), -Inf, schnittpu
 risk_salmon = seabass_wrong * 0.5;
 risk_seabass = salmon_wrong * 1.2;
     function[y] = cond_risk_salmon(x)
-        y = normpdf(x, mu_seabass, sigma_seabass) * 0.5;
+        y = apost(x, 1) * 0.5;
     end
     function[y] = cond_risk_seabass(x)
-         y = normpdf(x, mu_salmon, sigma_salmon) * 1.2;
+         y = apost(x, 2) * 1.2;
     end
 cond_risk = fplot(@(x) cond_risk_salmon(x),[0 3]);
 xlabel('fish length');
