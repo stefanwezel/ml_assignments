@@ -192,18 +192,23 @@ $\\
 	
 	
 	
-	
-	\item[g)] Wir gehen davon aus, dass es 50\% Lachse und 50\% Barsche gibt. Dies wirkt sich direkt auf die a posteriori Wahrscheinlichkeit aus, anhand deren wir letztendlich klassifizieren. Auch die Annahme, dass die beiden Arten normalverteilt sind, sowie Parameter $\mu$ und $\sigma$ spielen eine Rolle, da wir diese für die likelihood benötigen, welche auch in der Berechnung der a posteriori Wahrscheinlichkeit verwendet wird und sich somit auf die Klassifizierung auswirkt.
-	
-	
-	
-
+	\item[(g)] Wir gehen davon aus, dass es 50\% Lachse und 50\% Barsche gibt. Dies wirkt sich direkt auf die a posteriori Wahrscheinlichkeit aus, anhand deren wir letztendlich klassifizieren. Auch die Annahme, dass die beiden Arten normalverteilt sind, sowie Parameter $\mu$ und $\sigma$ spielen eine Rolle, da wir diese für die likelihood benötigen, welche auch in der Berechnung der a posteriori Wahrscheinlichkeit verwendet wird und sich somit auf die Klassifizierung auswirkt.
 	
 \end{itemize}
 
 \section*{Aufgabe 3}
-%TODO plots beschreiben/erklaerungen
 \begin{itemize}
+	\item[(a)]
+	\begin{lstlisting}
+		function[y] = cond_risk_salmon(x)
+			y = apost(x, 1) * 0.5;
+		end
+		function[y] = cond_risk_seabass(x)
+			y = apost(x, 2) * 1.2;
+		end
+	\end{lstlisting}
+	
+	
 	\item[b)] conditional risk im Intervall [0 2]:\\
 	Lachs:\\
 	\includegraphics*[scale = 0.5]{assignment2_data/plots/cond_risk_salmon.png}\\ \ \\
@@ -233,6 +238,15 @@ $\\
 		seabass_salmon(l) = seabass_salmon(l) + 1;
 	end
 	\end{lstlisting}
+	
+	
+	\item[(d)] Wenn wir die Kosten für $\lambda(Barsch|Lachs)$ erhöhen, werden mehr Fische als Lachs klassifiziert. Umgekehrt gilt das gleiche.
+	Setzen wir sie gleich, verhält es sich so, als ob es kein Loss geben würde.\\\\
+	Bsp:\\
+	$\lambda(Barsch|Lachs) = 2, \lambda(Lachs|Barsch) = 0.3\\
+	\rightarrow \text{423 Barsche und 577 Lachse.}$
+	
+	
 \end{itemize}
 
 \section*{Aufgabe 4}
