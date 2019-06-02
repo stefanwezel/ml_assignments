@@ -109,4 +109,31 @@ $\sigma$ beschreibt die Varianz der Samples und dementsprechend unsere beste Sch
 Für die Bayes Parameterschätzung nehmen wir an, dass 
 
 
+\section*{Aufgabe 2}
+z.z.: Für $x_1,...,x_n$ gezogen aus einer Normalverteilungen $X_1,...,X_n$ mit $\mathcal{N}(\mu, \sigma)$ gilt mit der Maximum Likelihood Methode: $\mu_{MLE} = \frac{\sum_{i=1}^{n} x_i}{n}$\\
+\underline{Beweis:}\\
+Wir wissen, dass gilt $P(X_1 = x_1 \wedge ... X_n = x_n) = \prod_{i=1}^n P(X_i = x_i)$. Wir müssen das $\mu$ finden, an dem der Ausdruck maximal wird. Aus 1a) wissen wir, dass wir beide Seiten dieser Gleichung logarithmieren dürfen, ohne dass sich das Maximum des Ausdrucks ändert. Diese Eigenschaft nutzen wir im folgenden aus. Der Einfachheit halber definieren wir $P(X_1 = x_1 \wedge ... X_n = x_n) = P$.
+\begin{align*}
+	P &= \prod_{i=1}^n P(X_i = x_i)\\
+	\Leftrightarrow P &= \prod_{i=1}^n \frac{1}{\sqrt{2\pi \sigma^2}} \exp{(- \frac{(x_i-\mu)^2}{2\sigma^2})}\\
+	\Leftrightarrow \log(P) &= \log(\prod_{i=1}^n \frac{1}{\sqrt{2\pi \sigma^2}} \exp{(- \frac{(x_i-\mu)^2}{2\sigma^2})})\\
+	\Leftrightarrow \log(P) &= \sum_{i=1}^{n}\log( \frac{1}{\sqrt{2\pi \sigma^2}} \exp{(- \frac{(x_i-\mu)^2}{2\sigma^2})})\\
+	\Leftrightarrow \log(P) &= n \log\frac{1}{\sqrt{2\pi \sigma^2}} + \sum_{i=1}^{n} \log\exp{(- \frac{(x_i-\mu)^2}{2\sigma^2})}\\
+	\Leftrightarrow \log(P) &= n \log\frac{1}{\sqrt{2\pi \sigma^2}} + \sum_{i=1}^{n} (- \frac{(x_i-\mu)^2}{2\sigma^2})\\
+	\Leftrightarrow \log(P) &= n \log\frac{1}{\sqrt{2\pi \sigma^2}} - \frac{1}{2\sigma^2}\sum_{i=1}^{n} (x_i-\mu)^2
+\end{align*}
+Um nun das Maximum dieses Ausdrucks zu berechnen, müssen wir ihn zunächst ableiten...
+\begin{align*}
+	(\log(P))' &= 0 - \frac{1}{2\sigma^2}\sum_{i=1}^{n} 2(x_i-\mu)(-1)\\
+	&= \frac{1}{\sigma^2}\sum_{i=1}^{n} (x_i-\mu)\\
+	&= \frac{1}{\sigma^2}(- n\mu + \sum_{i=1}^{n} x_i)
+\end{align*}
+...und dieses dann mit 0 gleichsetzen:
+\begin{align*}
+	0 &= \frac{1}{\sigma^2}(- n\mu + \sum_{i=1}^{n} x_i)\\
+	\Leftrightarrow 0 &=- n\mu + \sum_{i=1}^{n} x_i\\
+	\Leftrightarrow 0 &= - n\mu + \sum_{i=1}^{n} x_i\\
+	\Leftrightarrow n\mu &= \sum_{i=1}^{n} x_i\\
+	\Leftrightarrow \mu &= \frac{\sum_{i=1}^{n} x_i}{n}
+\end{align*}
 \end{document}
