@@ -1,0 +1,112 @@
+%Template
+% !TeX spellcheck = de 
+\documentclass[a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+%\usepackage[ngerman]{babel}
+\usepackage{geometry,forloop,fancyhdr,fancybox,lastpage}
+\usepackage{listings}
+\lstset{frame=tb,
+	language=Java,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3
+}
+\geometry{a4paper,left=3cm, right=3cm, top=3cm, bottom=3cm}
+% Diese Daten müssen pro Blatt angepasst werden:
+\newcommand{\NUMBER}{6}
+\newcommand{\EXERCISES}{3}
+% Diese Daten müssen einmalig pro Vorlesung angepasst werden:
+\newcommand{\COURSE}{Einführung in Maschinelles Lernen}
+\newcommand{\TUTOR}{TBD}
+\newcommand{\STUDENTA}{Maria Heitmeier}
+\newcommand{\STUDENTB}{Gwent Krause}
+\newcommand{\STUDENTC}{Stefan Wezel}
+\newcommand{\DEADLINE}{07.06.2018}
+
+
+
+
+%Math
+\usepackage{amsmath,amssymb,tabularx}
+
+%Figures
+\usepackage{graphicx,tikz,color,float}
+\graphicspath{ {home/stefan/picures/} }
+\usetikzlibrary{shapes,trees}
+
+%Algorithms
+\usepackage[ruled,linesnumbered]{algorithm2e}
+
+%Kopf- und Fußzeile
+\pagestyle {fancy}
+\fancyhead[L]{\COURSE}
+\fancyhead[C]{\STUDENTA, \STUDENTB, \STUDENTC\\}
+\fancyhead[R]{\today}
+
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{Seite \thepage}
+
+%Formatierung der Überschrift, hier nichts ändern
+\def\header#1#2{
+	\begin{center}
+		{\Large\bf Übungsblatt #1}\\
+		{(Abgabetermin #2)}
+	\end{center}
+}
+
+%Definition der Punktetabelle, hier nichts ändern
+\newcounter{punktelistectr}
+\newcounter{punkte}
+\newcommand{\punkteliste}[2]{%
+	\setcounter{punkte}{#2}%
+	\addtocounter{punkte}{-#1}%
+	\stepcounter{punkte}%<-- also punkte = m-n+1 = Anzahl Spalten[1]
+	\begin{center}%
+		\begin{tabularx}{\linewidth}[]{@{}*{\thepunkte}{>{\centering\arraybackslash} X|}@{}>{\centering\arraybackslash}X}
+			\forloop{punktelistectr}{#1}{\value{punktelistectr} < #2 } %
+			{%
+				\thepunktelistectr &
+			}
+			#2 &  $\Sigma$ \\
+			\hline
+			\forloop{punktelistectr}{#1}{\value{punktelistectr} < #2 } %
+			{%
+				&	
+			} &\\
+			\forloop{punktelistectr}{#1}{\value{punktelistectr} < #2 } %
+			{%
+				&
+			} &\\
+		\end{tabularx}
+	\end{center}
+}
+
+\begin{document}
+\section*{Aufgabe 1}
+\subsection*{(a)}
+Es ist möglich den Logarithmus zu verwenden, da es sich beim Logarithmus um eine monoton steigende stetige Funktion handelt. Das bedeutet, genau dort, wo das Maximum der Likelihood Funktion ist, ist auch das der Log-Likelihood.\\
+Wenn wir zur Log-Likelihood umformen, wird aus dem Produkt eine Summe (Aufgrund von Logarithmus Rechenregeln). Dies ist praktisch, da wir um das Maximum zu finden, ableiten müssen und eine Summe ableiten mehr Spaß macht als ein Produkt, da wir hier auf die Produktregel verzichten können und jeden Term einzeln ableiten können.
+
+
+\subsection*{(b)}
+Für $\mu$ erhält man den Durchschnitt der Sample Daten und unsere beste Schätzung für den Mittelwert der Verteilung. Es handelt sich dabei um einen konkreten Wert.\\
+$\sigma$ beschreibt die Varianz der Samples und dementsprechend unsere beste Schätzung für die Varianz der Verteilung. Auch hier ergibt sich ein konkreter Wert.
+
+
+
+\subsection*{(c)}
+Für die Bayes Parameterschätzung nehmen wir an, dass 
+
+
+\end{document}
