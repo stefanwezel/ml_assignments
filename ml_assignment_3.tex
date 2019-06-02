@@ -40,7 +40,7 @@
 \usepackage{amsmath,amssymb,tabularx}
 
 %Figures
-\usepackage{graphicx,tikz,color,float}
+\usepackage{graphicx,tikz,color,float, subcaption}
 \graphicspath{ {home/stefan/picures/} }
 \usetikzlibrary{shapes,trees}
 
@@ -119,6 +119,66 @@ Fehler der entsteht durch falsche a priori Wahrscheinlichkeiten.
 \subsubsection*{Schätz Fehler:}
 Verzerrung des Modells, falls zu wenige Trainingsdaten vorhanden sind.
 
+\section*{Aufgabe 3}
+
+\subsection*{(a)}
+
+\begin{itemize}
+	\item[$\widehat{\mu_n}$:] Durchschnitt aller x-Werte\\
+	Fuer große n naehert sich $\widehat{\mu_n}$ immer mehr dem tatsaechlichen $\mu$ an.\\
+	Fuer kleine n ist $\widehat{\mu_n}$ sehr ungenau und fuer n = 0 ist es Null.\\
+	\item[$\mu_0$:] Startpunkt fuer das zu schaetzende $\mu$
+	\item[$\sigma_n^2$:] Varianz der Verteilungsfunktion fuer $\mu_n$\\
+	Fuer große n naehert sich $\sigma_n^2$ immer mehr an Null an.\\
+	Fuer kleine n ist die Varianz recht groß und fuer n = 0 ist $\sigma_n^2$ = $\sigma_0^2$. 
+	\item[$\sigma^2$:] gegebene Varianz der Zufallsvariablen 
+\end{itemize}
 
 
+\subsection*{(d)}
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics*[scale = 0.4]{assignment3_data/plots/q3_i0}
+			\caption*{i = 0}
+		\end{subfigure}%
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics*[scale = 0.4]{assignment3_data/plots/q3_i1}
+			\caption*{i = 1}
+		\end{subfigure}
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics*[scale = 0.4]{assignment3_data/plots/q3_i2}
+			\caption*{i = 2}
+		\end{subfigure}%
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics*[scale = 0.4]{assignment3_data/plots/q3_i3}
+			\caption*{i = 3}
+		\end{subfigure}
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics*[scale = 0.4]{assignment3_data/plots/q3_i4}
+			\caption*{i = 4}
+		\end{subfigure}%
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics*[scale = 0.4]{assignment3_data/plots/q3_i5}
+			\caption*{i = 5}
+		\end{subfigure}
+	\end{figure}
+
+\subsection*{(e)}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+	\hline 
+	i & 0 & 1 & 2 & 3 & 4 & 5 \\ 
+	\hline 
+	quadratischer Fehler & 1.3546 & 0.3589 & 0.0754 & 0.0072 & 0.0221 & 0.0115 \\ 
+	\hline 
+\end{tabular}
+
+\subsection*{(e)}
+Die Bayessche Schaetzung gibt nicht einen Wert aus, der $\mu$ oder $\sigma$ maximiert, sondern eine Verteilungsfunktion, die die Wahrscheinlichkeitsdichte fuer die unbekannte Variable fuer die einzelnen Werte. 
 \end{document}
