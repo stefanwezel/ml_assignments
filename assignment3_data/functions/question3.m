@@ -30,14 +30,26 @@ for i = 0:5
 end
 hold on;
 yyaxis left
+ylabel('Wahrscheinlichkeitsdichte')
+
 % fplot(@(x) normpdf(x, mus(1), sigmas(1)),[0 6]);
 % fplot(@(x) normpdf(x, mus(2), sigmas(2)),[0 6]);
 % fplot(@(x) normpdf(x, mus(3), sigmas(3)),[2 4]);
 % fplot(@(x) normpdf(x, mus(4), sigmas(4)),[2.5 3.5]);
 % fplot(@(x) normpdf(x, mus(5), sigmas(5)),[2.8 3.1]);
- fplot(@(x) normpdf(x, mus(6), sigmas(6)),[2.8 3.1]);
+fplot(@(x) normpdf(x, mus(6), sigmas(6)),[2.8 3.1]);
 yyaxis right
-fplot(@(x) normpdf(x, 3, 1),[0 6])
-legend('mu Schätzer', 'echte Verteilung')
+fplot(@(x) normpdf(x, 3, 1),[2.8 3.1])
+legend('mu Schaetzer', 'echte Verteilung')
+xlim([2.8 3.1])
 hold off;
+
+squared_errors = [];
+for i = 1:6
+    error = (mus(i)- mu)^2;
+    squared_errors = [squared_errors error];
+end
+
+squared_errors
+
 end
