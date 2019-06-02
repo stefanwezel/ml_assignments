@@ -26,7 +26,7 @@ for i = 0:5
     mu_i = mu_n(list);
     squared_sigma_i = squared_sigma_n(x);
     mus = [mus mu_i];
-    sigmas = [sigmas, squared_sigma_i];
+    sigmas = [sigmas squared_sigma_i];
 end
 hold on;
 yyaxis left
@@ -35,8 +35,9 @@ yyaxis left
 % fplot(@(x) normpdf(x, mus(3), sigmas(3)),[2 4]);
 % fplot(@(x) normpdf(x, mus(4), sigmas(4)),[2.5 3.5]);
 % fplot(@(x) normpdf(x, mus(5), sigmas(5)),[2.8 3.1]);
-fplot(@(x) normpdf(x, mus(6), sigmas(6)),[2.8 3.1]);
+ fplot(@(x) normpdf(x, mus(6), sigmas(6)),[2.8 3.1]);
 yyaxis right
-fplot(@(x) normpdf(x, 3, 1),[2.8 3.3])
+fplot(@(x) normpdf(x, 3, 1),[0 6])
+legend('mu Schätzer', 'echte Verteilung')
 hold off;
 end
