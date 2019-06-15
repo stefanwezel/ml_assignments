@@ -95,7 +95,25 @@
 \begin{document}
 \section*{Aufgabe 1}
 \subsection*{(a)}
-Das Ziel der PCA ist eine Repräsentation zu finden, die die Unterschiede in Daten möglichst gut darstellt. Dies geschieht indem eine Linearkombination gesucht wird, die größte Varianz der Daten enthält. 
+Das Ziel der PCA ist eine Repräsentation zu finden, die die Unterschiede in Daten möglichst gut darstellt. Dies geschieht indem eine Linearkombination gesucht wird, die (üblicherweise zwei) größten Varianzen der Daten enthält.\\
+Klassenzugehörigkeit spielt bei der PCA üblicherweise keine Rolle. %TODO ned ganz sicher ob das stimmt
 
+
+
+\subsection*{(b)}
+Bei LDA versucht man wie bei PCA Linearkombinationen zu finden, die Daten gut repräsentiert. Allerdings möchte man hier noch Aussagen über Klassenzugehörigkeit treffen können. Wir benötigen also nicht zwingend die Linearkombination mit der größten Varianz, sonden die mit der größten Seperierbarkeit, also die die Daten in deutlich getrennte Cluster aufteilt.\\
+Im Gegensatz zu PCA handelt es sich bei LDA um ein supervised learning Verfahren.
+
+
+
+\subsection*{(c)}
+$c-1$ Dimensionen.
+
+
+
+
+
+\subsection*{(d)}
+Wir versuchen die das Verhältnis von Streung zwischen Klassen zur Streung innerhalb der Klassen zu maximieren.
 
 \end{document}
