@@ -1,0 +1,101 @@
+%Template
+% !TeX spellcheck = de 
+\documentclass[a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+%\usepackage[ngerman]{babel}
+\usepackage{geometry,forloop,fancyhdr,fancybox,lastpage}
+\usepackage{listings}
+\lstset{frame=tb,
+	language=Java,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3
+}
+\geometry{a4paper,left=3cm, right=3cm, top=3cm, bottom=3cm}
+% Diese Daten müssen pro Blatt angepasst werden:
+\newcommand{\NUMBER}{6}
+\newcommand{\EXERCISES}{3}
+% Diese Daten müssen einmalig pro Vorlesung angepasst werden:
+\newcommand{\COURSE}{Einführung in Maschinelles Lernen}
+\newcommand{\TUTOR}{TBD}
+\newcommand{\STUDENTA}{Maria Heitmeier}
+\newcommand{\STUDENTB}{Gwent Krause}
+\newcommand{\STUDENTC}{Stefan Wezel}
+\newcommand{\DEADLINE}{07.06.2018}
+
+
+
+
+%Math
+\usepackage{amsmath,amssymb,tabularx}
+
+%Figures
+\usepackage{graphicx,tikz,color,float}
+\graphicspath{ {home/stefan/picures/} }
+\usetikzlibrary{shapes,trees}
+
+%Algorithms
+\usepackage[ruled,linesnumbered]{algorithm2e}
+
+%Kopf- und Fußzeile
+\pagestyle {fancy}
+\fancyhead[L]{\COURSE}
+\fancyhead[C]{\STUDENTA, \STUDENTB, \STUDENTC\\}
+\fancyhead[R]{\today}
+
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{Seite \thepage}
+
+%Formatierung der Überschrift, hier nichts ändern
+\def\header#1#2{
+	\begin{center}
+		{\Large\bf Übungsblatt #1}\\
+		{(Abgabetermin #2)}
+	\end{center}
+}
+
+%Definition der Punktetabelle, hier nichts ändern
+\newcounter{punktelistectr}
+\newcounter{punkte}
+\newcommand{\punkteliste}[2]{%
+	\setcounter{punkte}{#2}%
+	\addtocounter{punkte}{-#1}%
+	\stepcounter{punkte}%<-- also punkte = m-n+1 = Anzahl Spalten[1]
+	\begin{center}%
+		\begin{tabularx}{\linewidth}[]{@{}*{\thepunkte}{>{\centering\arraybackslash} X|}@{}>{\centering\arraybackslash}X}
+			\forloop{punktelistectr}{#1}{\value{punktelistectr} < #2 } %
+			{%
+				\thepunktelistectr &
+			}
+			#2 &  $\Sigma$ \\
+			\hline
+			\forloop{punktelistectr}{#1}{\value{punktelistectr} < #2 } %
+			{%
+				&	
+			} &\\
+			\forloop{punktelistectr}{#1}{\value{punktelistectr} < #2 } %
+			{%
+				&
+			} &\\
+		\end{tabularx}
+	\end{center}
+}
+
+\begin{document}
+\section*{Aufgabe 1}
+\subsection*{(a)}
+Das Ziel der PCA ist eine Repräsentation zu finden, die die Unterschiede in Daten möglichst gut darstellt. Dies geschieht indem eine Linearkombination gesucht wird, die größte Varianz der Daten enthält. 
+
+
+\end{document}
