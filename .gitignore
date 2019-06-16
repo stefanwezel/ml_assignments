@@ -243,3 +243,9 @@ TSWLatexianTemp*
 
 # Matlab backup files
 *.m~
+
+# zip files for handing in homework
+*.zip
+
+# Matlab
+*.asv
