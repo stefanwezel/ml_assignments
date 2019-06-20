@@ -114,7 +114,30 @@ $c-1$ Dimensionen.
 
 
 \subsection*{(d)}
-Wir versuchen die das Verhältnis von Streung zwischen Klassen zur Streung innerhalb der Klassen zu maximieren.
+Bei der LDA wird versucht die Separation unterschiedlicher Klassen zu maximieren. Dies geschieht durch das maximieren des Verhältnisses von Abstand der Mittelwerte zu einer geraden und Streuung der Datenpunkte. Die Streuung können wir mithilfe der Scattermatrix berechnen.
+
+
+
+
+\subsection*{(e)}
+Die Streuung der Datenpunkte kann mithilfe der \text{within class scatter matrix} $S_W$ berechnet werden. Die Mittelwerte ergeben sich aus der \textit{between class scatter matrix} $S_B$.\\
+Für die within class scatter matrix gilt:\\
+$
+S_W = S_1 + S_2
+$\\
+$S_1$ und $S_2$ ergeben sich aus:\\
+$
+S_i = \sum_{x\in\mathcal{D}_i}(x-m_i)\cdot(x-m_i)^T
+$\\
+\\
+Für die between class scatter matrix gilt:\\
+$
+S_B = (m_1 - m_2)\cdot(m_1-m_2)^T
+$\\
+\\
+Die Mat
+
+
 
 
 \section*{Aufgabe 2}
