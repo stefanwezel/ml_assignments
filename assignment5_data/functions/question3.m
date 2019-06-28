@@ -15,35 +15,45 @@ else
     z = {p_a p_b p_x p_c p_d}
     
     if a < 1
-        s = size(p_a);
-        a = s;
+        
+        a = p_a;
+    else
+        a = p_a(a);
     end
     if b < 1
-        s = size(p_b);
-        b = s(1);
+       
+        b = p_b;
+    else
+        b = p_b(b);
     end
     if x < 1
-        s = size(p_x);
-        x = s;
+
+        x = p_x;
+    else
+        x = p_x(x);
     end
     if c < 1
-        s = size(p_c);
-        c = s;if a < 1
-        s = size(a);
-        a = s(1);
+        c = p_c;
+    else
+        c = p_c(c);
     end
     
     end
     if d < 1
-        s = size(p_d);
-        d = s;
+        d = p_d;
+    else
+        d = p_d(d);
     end
     
+    p_ab = a' * b;
+    p_ab
+    x
+    p_xab = p_ab * x;
     
     
-    p = 0;
+    
+    
 
 
 
-end
 end
