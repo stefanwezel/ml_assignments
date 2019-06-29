@@ -51,15 +51,17 @@ else
         for j = 1:size_ab(2)
             for k = x
                 p_xab = p_xab + p_ab(i,j) * p_x{k}{a(i)}(b(j));
-                for l = c
-                    p_cx = p_cx + p_c(l,k);
-                end
-                for m = d
-                    p_dx = p_dx + p_d(m,k);
-                end
             end
             
-            
+        end
+    end
+    
+    for k = x
+        for l = c
+            p_cx = p_cx + p_c(l,k);
+        end
+        for m = d
+            p_dx = p_dx + p_d(m,k);
         end
     end
     
