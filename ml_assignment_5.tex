@@ -122,13 +122,19 @@ Die Matrix B beinhaltet die Übergangswahrscheinlichkieten in sichtbare Zuständ
 
 \subsection*{(g)}
 \begin{itemize}
-	\item \textbf{Bewertungsproblem} Wie wird der Nachfolgezustand anhand der Übergangswahrscheinlichkeiten bestimmt. %TODO nicht sicher
+	\item \textbf{Bewertungsproblem} Wie wird der Nachfolgezustand anhand der Übergangswahrscheinlichkeiten bestimmt. %TODO stimmt glaub nicht
+	Zur Bewertung kann beispielsweise der Forward Algorithmus genutzt werden.
 	
 	\item \textbf{Dekodierungsproblem} Wie kann man die wahrscheinlichste Folge von hidden states herausfinden, gegeben die Menge aus sichtbaren Zuständen.
 	
-	\item \textbf{Lernproblem}
+	\item \textbf{Lernproblem} %TODO
 \end{itemize}
 
-
+\subsection*{(h)}
+Der Forward Algorithmus wird genutzt um das Bewertungsproblem zu lösen. Er kann auch zum Dekodieren verwendet werden.
+\\
+Mithilfe des Backward Algorithmus' wird das Dekodierungsproblem gelöst.
+\subsection*{(i)}
+Da der Viterbi Decoder ein Maximum ausgibt und der Logarithmus eine streng monoton steigende Funktion ist, hat er das Maximum an der gleichen Stelle wie die nicht logarithmierten Daten.
 
 \end{document}
