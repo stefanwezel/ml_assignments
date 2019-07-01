@@ -4,6 +4,7 @@
 \usepackage[utf8]{inputenc}
 %\usepackage[ngerman]{babel}
 \usepackage{geometry,forloop,fancyhdr,fancybox,lastpage}
+\usepackage{lscape}
 \usepackage{listings}
 \lstset{frame=tb,
 	language=Java,
@@ -128,6 +129,37 @@ Die Matrix B beinhaltet die Übergangswahrscheinlichkieten in sichtbare Zuständ
 	
 	\item \textbf{Lernproblem}
 \end{itemize}
+
+\section*{Aufgabe 2}
+\subsection*{a)}
+
+\subsection*{b)}
+\begin{align*}
+	P(x_1|c_2) \overset{\text{Bayes' rule}}{=} &\frac{P(c_2|x)\cdot P(x_1)}{P(c_2)}\\
+	\overset{\text{Hinweis}}{=} &\frac{P(c_2|x)\cdot P(x_1)}{P(c_2|x_1)P(x_1) + P(c_2|x_2)P(x_2)}\\
+	= &\frac{0.2\cdot 0.445}{0.2\cdot 0.445 + 0.3\cdot 0.445} \approx 0.3483
+\end{align*}
+
+\begin{landscape}
+	\small
+	\subsection*{c)}
+	\begin{align*}
+	P(a_3|d_1,x_2) \overset{\text{Bayes' rule}}{=} &\frac{P(d_1 \wedge x_2|a_3)P(a_3)}{P(d_1 \wedge x_2)}\\
+	\overset{\text{Pfadregel + Hinweis}}{=} &\frac{P(x_2|a_3)P(d_1|x_2)P(a_3)}{P(d_1 \wedge x_2|a_1)P(a_1) + P(d_1 \wedge x_2|a_2)P(a_2) + P(d_1 \wedge x_2|a_3)P(a_3) + P(d_1 \wedge x_2|a_4)P(a_4)}\\
+	\overset{\text{Pfadregel}}{=} &\frac{P(x_2|a_3)P(d_1|x_2)P(a_3)}{(P(x_2|a_1)P(a_1) + P(x_2|a_2)P(a_2) + P(x_2|a_3)P(a_3) + P(x_2|a_4)P(a_4))P(d_1|x_2)}\\
+	\overset{\text{Pfadregel}}{=} &\frac{P(x_2|a_3)P(a_3)}{P(x_2|a_1)P(a_1) + P(x_2|a_2)P(a_2) + P(x_2|a_3)P(a_3) + P(x_2|a_4)P(a_4)}\\
+	\overset{P(a_1)=P(a_2)=P(a_3)=P(a_4)}{=} &\frac{P(x_2|a_3)}{P(x_2|a_1) + P(x_2|a_2) + P(x_2|a_3) + P(x_2|a_4)}\\
+	\overset{\text{Marginalisierung}}{=} &\frac{P(x_2|a_3, b_1)P(b_1) + P(x_2|a_3, b_2)P(b_2)}{(P(x_2|a_1, b1) +  P(x_2|a_2, b_1) + P(x_2|a_3, b_1) + P(x_2|a_4, b_1))P(b_1) + (P(x_2|a_1, b2)+ P(x_2|a_2, b_2)+ P(x_2|a_2, b_2)+ P(x_2|a_3, b_2)+ P(x_2|a_4, b_2))P(b_2)}\\
+	= &\frac{0.6\cdot 0.6 + 0.9 \cdot 0.4}{(0.5 + 0.4 + 0.6 + 0.8)\cdot 0.6 + (0.3 + 0.2 + 0.9 + 0.7)\cdot 0.4 } = 0.\overline{324}
+	\end{align*}
+	
+	\normalsize
+	
+	\subsection*{d)}
+	\begin{align*}
+		P(c_1|d_2, x_1) \overset{\text{Hinweis}}{=} P(c_1 | x_1) = 0.6
+	\end{align*}
+\end{landscape}
 
 
 
