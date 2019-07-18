@@ -1,9 +1,11 @@
 function[] = aufgabe3()
 function[y] = phi(x, sigma)
+    % Berechnet die Fensterfunktion
     y = 1/(sqrt(2*pi*sigma)) * exp((-x^2)/(2*sigma^2));
 end
 
 function[p] = pn(x, xv, sigma)
+    % Berechnet den Schaetzwert 
     phis = 0;
     n = size(xv,2);
     for i = 1:n
@@ -14,6 +16,7 @@ function[p] = pn(x, xv, sigma)
 end
 
 function[] = result(x)
+    % Berechne und plotte das Ergebnis fuer die geg. Datenpunkte
     d = [2 4 5 8 15]
     results = [];
     i = 1;
@@ -34,14 +37,17 @@ function[] = result(x)
 end
 
 result(0:0.1:20)
+
+
+% Lese testdaten ein
 D1 = csvread('D1.csv');
 D2 = csvread('D2.csv');
 
     function[w, a] = PNN_training()
+        % trainiert ein propabilistisches Netz
         n1 = size(D1, 1);
         n2 = size(D2, 1);
         w = zeros(n1+n2, size(D1, 2));
-        %a = zeros(n1+n2, size(D1, 2));
         for j = 1:n1
             D1(j,:) = D1(j,:)/sqrt(sum(D1(j,:).*D1(j,:)));
             w(j,:) = D1(j,:);
@@ -59,6 +65,7 @@ D2 = csvread('D2.csv');
 [w, a] = PNN_training();
 
     function[class] = PNN_classification(test, sigma)
+        % Gibt die Klassenzugehoerigkeit fuer Testdaten
         g = [0 0];
         n = size(w, 1);
         z = zeros(1, n);
