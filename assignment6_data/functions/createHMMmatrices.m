@@ -1,6 +1,6 @@
 function hmm = createHMMmatrices()
 %CREATEHMMMATRICES Summary of this function goes here
-%   G: Übergangswahrscheinlichkeiten der Hidden States
+%   G: ï¿½bergangswahrscheinlichkeiten der Hidden States
 %   V: Emissionswahrscheinlichkeiten der Visible States
 
 G = zeros(11, 11);
