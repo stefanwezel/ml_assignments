@@ -1,46 +1,49 @@
 function question1()
 hmm = createHMMmatrices();
-hmm.G
-hmm.V 
+hmm.G;
+hmm.V;
 
+% ----- b) -------
 
     function[y] = forward(X, t, model)
         y = 0;
-        X;
-        t;
-        %if size(X) == [1 0]
-        %    return ;
-        %end
-        if t == 1
-            y = zeros(11, 1);
-            y(t) = 1;
-        %    return ;
+        
+        if t == 0
+            y = zeros(1, 11);
+            y(1) = 1;
         else
-        
-        
-        s = size(X);
-        current_X = X(t)
-        current_X
-        s2 = size(model.G);
-        s3 = size(model.V);
-        for i = 1: s2(2)
-            i;
-        %y = forward(X, t-1, model) + y
+            
+            
+            
+            s2 = size(model.G);
+            s3 = size(model.V);
             fw = forward(X,t-1,model);
-            fw
-            model.G(i, 1:s2(1));
-            y;
-            y = y + fw* model.G(i, 1:s2(1))
+            z = zeros(11,11);
+            for state = 1:s2(2)
+                z(state, 1:s2(1)) = fw(state) * model.G(state, 1:s2(1));
+            end
+            
+            for i = 1:11
+                y = y + z(i, 1:11)'.* model.V(1:s3(1), X(t));
+            end
+            y = y';
         end
         
-        model.V(1:s3(1), X(t));
-        y = y * model.V(1:s3(1), current_X);
-        
-        end
-       
         
     end
 
-forward([1 3 6 7 9], 5, hmm)
-    
+% c) d) missing
+
+% ---- e) -----
+e = forward([1 3 5 7 9],5 , hmm);
+% WK fuer G_9:
+e(10) % Da G bei 0 anfaengt aber matlab bei 1
+
+% ---- f) ------
+f = forward([2 3 5 7 10], 5, hmm);
+% WK fuer G_9:
+f(10) % Da G bei 0 anfaengt aber matlab bei 1
+
+% g) missing
+
 end
